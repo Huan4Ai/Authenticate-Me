@@ -4,7 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sequelize": "sequelize",
+    "sequelize-cli": "sequelize-cli",
+    "start": "per-env",
+    "start:development": "nodemon -r dotenv/config ./bin/www",
+    "start:production": "node ./bin/www",
+    "nsc-init": "npx sequelize-cli init",
+    "db:create": "npx dotenv sequelize-cli db:create",
+    "db:migrate": "npx dotenv sequelize-cli db:migrate",
+    "db:migrate:undo": "npx dotenv sequelize-cli db:migrate:undo",
+    "db:migrate:undo:all": "npx dotenv sequelize-cli db:migrate:undo:all",
+    "db:seed:all": "npx dotenv sequelize-cli db:seed:all",
+    "db:seed:undo:all": "npx dotenv sequelize-cli db:seed:undo:all",
+    "db:drop": "npx dotenv sequelize-cli db:drop && npx dotenv sequelize-cli db:create && npx dotenv sequelize-cli db:migrate && npx dotenv sequelize-cli db:seed:all"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +41,7 @@
   },
   "devDependencies": {
     "dotenv-cli": "^4.0.0",
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.12",
+    "dotenv": "^8.2.0"
   }
 }
