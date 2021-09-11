@@ -9,12 +9,6 @@ import App from './App';
 
 import configureStore from './store';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
 
 const store = configureStore();
 
