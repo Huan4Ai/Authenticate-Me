@@ -50,7 +50,7 @@ router.post('/', csrfProtection, requireAuth, asyncHandler(async (req, res, next
 
   if (questionErrors.isEmpty()) {
     const createQuestion = await Question.create({
-      ownerId: req.session.auth.id,
+      ownerId: req.user.id,
       title,
       description
     });
@@ -71,13 +71,13 @@ router.put('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, r
   const question = await Question.findByPk(req.params.id);
   const { title, description } = req.body;
 
-  if (question && (req.session.auth.id === question.ownerId)) {
+  if (question && (req.user.id === question.ownerId)) {
     question.update({
       title,
       description
     });
     res.redirect('/questions/:id')
-  } else if (req.session.auth.id !== question.ownerId) {
+  } else if (req.user.id !== question.ownerId) {
     next(new Error("You are not authorized to update that"));
   } else {
     next(new Error("Question not found"));
@@ -89,14 +89,16 @@ router.put('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, r
 router.delete('/questions/:id(\\d+)', requireAuth, asyncHandler(async(req, res, next) => {
 
     const question = await Question.findByPk(req.params.id);
-    const sessionUserId = req.session.auth.id;
+    const currentUserId = req.user.id;
 
-    if (question && (sessionUserId === question.ownerId)) {
+    if (question && (currentUserId === question.ownerId)) {
         await question.destroy();
         res.json({'Message': 'The question has been deleted'});
     } else if (!question) {
         next(new Error('Question not found'));
-    } else if (sessionUserId !== question.ownerId) {
+    } else if (currentUserId !== question.ownerId) {
         next(new Error('You are not authorized to delete that. You are not that user.'));
     }
 }));
+
+module.exports = router;
