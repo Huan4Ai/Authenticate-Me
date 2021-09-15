@@ -6,19 +6,18 @@ import { getQuestion } from "../../store/question";
 
 function ShowAllQuestions() {
   const dispatch = useDispatch();
-  const questions = useSelector(state => state.questions);
+  const questions = useSelector(state => state.question);
 
   useEffect(() => {
     dispatch(getQuestion())
   }, [dispatch]);
 
-  // return (
-    // <ul>{questions.map(question => <li>{question}</li>)}</ul>
+  return (
+    // <ul>{questions?.map(question => <li>{question}</li>)}</ul>
+    <ul>{Object.keys(questions).map(key => <li>{questions[key].title}</li>)}</ul>
+  );
 
-  // );
-
-  return null;
-
+  // return null;
 
 
 
