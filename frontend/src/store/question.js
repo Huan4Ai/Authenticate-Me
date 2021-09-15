@@ -97,15 +97,16 @@ const questionReducer = (state = ininitalState, action) => {
       newQuestion = action.payload;
       newState[newQuestion.id] = newQuestion;
       return newState;
-    case (EDIT):
+    case (EDIT):/*  */
       newState = Object.assign({}, state);
       newQuestion = action.payload;
       newState[newQuestion.id] = newQuestion;
       return newState;
     case (REMOVE_QUESTION):
       newState = Object.assign({}, state);
-      newQuestion = null;
-      newState[newQuestion.id] = newQuestion;
+      action.payload.forEach((question) => {
+        newState[question.id] = question;
+      })
       return newState;
     default:
       return state;

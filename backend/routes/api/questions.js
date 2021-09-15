@@ -92,8 +92,11 @@ router.delete('/questions/:id(\\d+)', requireAuth, asyncHandler(async(req, res, 
     const currentUserId = req.user.id;
 
     if (question && (currentUserId === question.ownerId)) {
-        await question.destroy();
-        res.json({'Message': 'The question has been deleted'});
+      await question.destroy();
+      const questions = await Question.findAll( {
+        include: User
+      })
+        res.json({questions});
     } else if (!question) {
         next(new Error('Question not found'));
     } else if (currentUserId !== question.ownerId) {
