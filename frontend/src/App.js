@@ -5,6 +5,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import ShowAllQuestions from "./components/QuestionsPage";
+import ShowOneQuestion from "./components/SingleQuestion";
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +24,9 @@ function App() {
           </Route>
           <Route path='/api/questions'>
             <ShowAllQuestions />
+          </Route>
+          <Route path='/api/questions/:Id'>
+            <ShowOneQuestion />
           </Route>
         </Switch>
       )}

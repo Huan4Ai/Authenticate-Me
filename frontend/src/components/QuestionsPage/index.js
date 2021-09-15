@@ -13,8 +13,7 @@ function ShowAllQuestions() {
   }, [dispatch]);
 
   return (
-    // <ul>{questions?.map(question => <li>{question}</li>)}</ul>
-    <ul>{Object.keys(questions).map(key => <li>{questions[key].title}</li>)}</ul>
+    <ul>{Object.keys(questions).map(key => <li><div>{questions[key].title}</div><div>{questions[key].description}</div></li>)}</ul>
   );
 
   // return null;

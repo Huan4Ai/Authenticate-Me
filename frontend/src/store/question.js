@@ -30,7 +30,7 @@ export const getQuestion = () => async dispatch => {
 
   if (response.ok) {
     const list = await response.json();
-    console.log(list);
+    // console.log(list);
     dispatch(load(list));
   }
 
@@ -41,6 +41,7 @@ export const getSingleQuestion = (questionId) => async dispatch => {
 
   if (response.ok) {
     const question = await response.json();
+    console.log(question);
     dispatch(addOneQuestion(question));
   }
 
