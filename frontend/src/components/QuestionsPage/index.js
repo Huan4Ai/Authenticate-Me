@@ -12,10 +12,12 @@ function ShowAllQuestions() {
     dispatch(getQuestion())
   }, [dispatch]);
 
+  // return (
+    // <ul>{questions.map(question => <li>{question}</li>)}</ul>
 
-  return (
-    <ul>{questions.map(question => <li>{question}</li>) }</ul>
-  )
+  // );
+
+  return null;
 
 
 
