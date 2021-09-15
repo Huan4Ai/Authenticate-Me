@@ -2,16 +2,23 @@ import { csrfFetch } from "./csrf";
 
 const LOAD = 'questions/LOAD';
 const ADD_ONE = 'questions/ADD_ONE'
+const EDIT = 'questions/:id'
+const REMOVE_QUESTION = 'questions/:id'
 
 
 const load = list => ({
   type: LOAD,
-  list,
+  payload: list
 });
 
 const addOneQuestion = question => ({
   type: ADD_ONE,
-  question,
+  payload: question
+});
+
+const editOneQuestion = editQuestion => ({
+  type: EDIT,
+  payload: editQuestion
 });
 
 const removeQuestion = () => ({
@@ -19,7 +26,7 @@ const removeQuestion = () => ({
 })
 
 export const getQuestion = () => async dispatch => {
-  const response = await fetch('/api/questions');
+  const response = await csrfFetch('/api/questions');
 
   if (response.ok) {
     const list = await response.json();
@@ -29,7 +36,7 @@ export const getQuestion = () => async dispatch => {
 };
 
 export const getSingleQuestion = (questionId) => async dispatch => {
-  const response = await fetch(`/api/questions/${questionId}`);
+  const response = await csrfFetch(`/api/questions/${questionId}`);
 
   if (response.ok) {
     const question = await response.json();
@@ -38,7 +45,7 @@ export const getSingleQuestion = (questionId) => async dispatch => {
 
 };
 export const createAQuestion = (questionData) => async dispatch => {
-  const response = await fetch(`/api/questions`, {
+  const response = await csrfFetch(`/api/questions`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(questionData),
@@ -52,23 +59,60 @@ export const createAQuestion = (questionData) => async dispatch => {
 };
 
 export const editAQuestion = (questionData) => async dispatch => {
-  const response = await fetch(`/api/questions/${questionData.id}`, {
+  const response = await csrfFetch(`/api/questions/${questionData.id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(questionData),
   });
   if (response.ok) {
     const question = await response.json();
-    dispatch(addOneQuestion(question));
+    dispatch(editOneQuestion(editAQuestion));
     return question;
   }
 
 };
 
 export const removeAQuestion = (questionData) => async dispatch => {
-  const response = await fetch(`/api/questions/${questionData.id}`, {
+  const response = await csrfFetch(`/api/questions/${questionData.id}`, {
     method: 'DELETE',
   });
   dispatch(removeQuestion());
   return response;
 };
+
+const ininitalState = {};
+
+const questionReducer = (state = ininitalState, action) => {
+
+  let newState, newQuestion;
+  switch (action.type) {
+    case (LOAD):
+      newState = Object.assign({}, state);
+      action.payload.forEach((question) => {
+        newState[question.id] = question;
+      })
+      return newState;
+    case (ADD_ONE):
+      newState = Object.assign({}, state);
+      newQuestion = action.payload;
+      newState[newQuestion.id] = newQuestion;
+      return newState;
+    case (EDIT):
+      newState = Object.assign({}, state);
+      newQuestion = action.payload;
+      newState[newQuestion.id] = newQuestion;
+      return newState;
+    case (REMOVE_QUESTION):
+      newState = Object.assign({}, state);
+      newQuestion = null;
+      newState[newQuestion.id] = newQuestion;
+      return newState;
+    default:
+      return state;
+
+  };
+
+
+};
+
+export default questionReducer;
