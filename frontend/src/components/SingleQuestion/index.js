@@ -13,11 +13,11 @@ function ShowOneQuestion() {
   }, [dispatch]);
 
 
-  return (
-        <ul>{Object.keys(singleQuestion).map(key => <li><div>{singleQuestion[key].title}</div><div>{singleQuestion[key].description}</div></li>)}</ul>
+  // return (
+  //       // <ul>{Object.keys(singleQuestion).map(key => <li><div>{singleQuestion[key].title}</div><div>{singleQuestion[key].description}</div></li>)}</ul>
 
-  )
-
+  // )
+  return null;
 
 
 

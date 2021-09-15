@@ -22,10 +22,10 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path='/api/questions'>
+          <Route path='/questions'exact>
             <ShowAllQuestions />
           </Route>
-          <Route path='/api/questions/:Id'>
+          <Route path='/questions/:Id'>
             <ShowOneQuestion />
           </Route>
         </Switch>
