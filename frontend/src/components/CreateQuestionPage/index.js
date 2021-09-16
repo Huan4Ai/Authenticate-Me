@@ -12,10 +12,18 @@ function CreateSingleQuestion() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
-  const updateTitle = (e) => 
+  useEffect(() => {
+
+
+  });
 
   const onSubmit = (e) => {
     e.preventDefault();
+  };
+
+  const handleCancelClick = (e) => {
+    e.preventDefault();
+    hideForm();
   };
 
   return (
@@ -24,11 +32,11 @@ function CreateSingleQuestion() {
       <form onSubmit={onSubmit}>
         <div>
           <label htmlFor='title'>Title:</label>
-          <input id='title' type='text' onChange={(e) => setTitle(e.target.value)} value={title} />
+          <input id='title' type='text' onChange={(e) => setTitle(e.target.value)} value={title} required />
         </div>
         <div>
           <label htmlFor='description'>Description:</label>
-          <textarea id='description' type='text' onChange={(e) => setDescription(e.target.value)} value={description} />
+          <textarea id='description' type='text' onChange={(e) => setDescription(e.target.value)} value={description} required/>
         </div>
         <button>Submit</button>
       </form>
@@ -40,4 +48,4 @@ function CreateSingleQuestion() {
 
 }
 
-export default CreateSingleQuestion
+export default CreateSingleQuestion；
