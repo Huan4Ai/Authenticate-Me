@@ -41,7 +41,6 @@ export const getSingleQuestion = (questionId) => async dispatch => {
 
   if (response.ok) {
     const question = await response.json();
-    console.log(question);
     dispatch(addOneQuestion(question));
   }
 

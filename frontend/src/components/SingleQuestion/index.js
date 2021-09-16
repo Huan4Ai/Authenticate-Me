@@ -3,13 +3,15 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { getSingleQuestion } from "../../store/question";
+import { useParams } from "react-router";
 
 function ShowOneQuestion() {
+  const { questionId } = useParams();
   const dispatch = useDispatch();
-  const singleQuestion = useSelector(state => state.newQuestion);
+  const singleQuestion = useSelector(state => state.question[questionId]);
 
   useEffect(() => {
-    dispatch(getSingleQuestion())
+    dispatch(getSingleQuestion(questionId))
   }, [dispatch]);
 
 

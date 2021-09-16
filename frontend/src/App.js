@@ -25,7 +25,7 @@ function App() {
           <Route path='/questions'exact>
             <ShowAllQuestions />
           </Route>
-          <Route path='/questions/:Id'>
+          <Route path='/questions/:id'exact>
             <ShowOneQuestion />
           </Route>
         </Switch>

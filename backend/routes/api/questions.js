@@ -86,7 +86,7 @@ router.put('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, r
 
 }));
 
-router.delete('/questions/:id(\\d+)', requireAuth, asyncHandler(async(req, res, next) => {
+router.delete('/:id(\\d+)', requireAuth, asyncHandler(async(req, res, next) => {
 
     const question = await Question.findByPk(req.params.id);
     const currentUserId = req.user.id;
