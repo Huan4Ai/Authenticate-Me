@@ -6,19 +6,24 @@ import { getSingleQuestion } from "../../store/question";
 import { useParams } from "react-router";
 
 function ShowOneQuestion() {
-  const { questionId } = useParams();
+  const { questionId } = useParams(); // has to be exactly same as in the APP.js route
   const dispatch = useDispatch();
   const singleQuestion = useSelector(state => state.question[questionId]);
+  console.log(singleQuestion);
 
   useEffect(() => {
     dispatch(getSingleQuestion(questionId))
   }, [dispatch]);
 
 
-  // return (
-  //       // <ul>{Object.keys(singleQuestion).map(key => <li><div>{singleQuestion[key].title}</div><div>{singleQuestion[key].description}</div></li>)}</ul>
+  if (singleQuestion !== null || singleQuestion !== undefined) {
+      return (
+       <ul>{<li><div>{singleQuestion?.title}</div><div>{singleQuestion?.description}</div></li>}</ul>
 
-  // )
+  )
+  }
+
+
   return null;
 
 

@@ -41,7 +41,7 @@ export const getSingleQuestion = (questionId) => async dispatch => {
 
   if (response.ok) {
     const question = await response.json();
-    dispatch(addOneQuestion(question));
+    dispatch(addOneQuestion(question.specificQuestion)); // it has to be the same as the backend res.json()
   }
 
 };
