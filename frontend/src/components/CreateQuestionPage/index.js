@@ -1,24 +1,24 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { createAQuestion } from "../../store/question";
 
 
-function CreateSingleQuestion() {
+const  CreateSingleQuestion = ({hideForm}) => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const ownerId = useSelector((state) => state.session.user.id)
 
+  const ownerId = useSelector((state) => state.session.user.id)
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
-  // useEffect(() => {
+  const reset = () => {
+    setTitle("");
+    setDescription("");
+  }
 
-
-  // });
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = {
       ownerId,
@@ -29,8 +29,8 @@ function CreateSingleQuestion() {
     let createdQuestion = await dispatch(createAQuestion(payload));
     if (createdQuestion) {
       history.push(`/questions/${createdQuestion.id}`);
-      hideForm();
     }
+    reset();
   };
 
   const handleCancelClick = (e) => {
@@ -61,4 +61,4 @@ function CreateSingleQuestion() {
 
 }
 
-export default CreateSingleQuestion；
+export default CreateSingleQuestion
