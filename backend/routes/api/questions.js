@@ -43,30 +43,34 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
 
 );
 
-router.post('/', csrfProtection, requireAuth, asyncHandler(async (req, res, next) => {
+router.post('/', requireAuth, asyncHandler(async (req, res, next) => {
 
   const { title, description } = req.body;
-  const questionErrors = validationResult(req);
-
-  if (questionErrors.isEmpty()) {
-    const createQuestion = await Question.create({
-      ownerId: req.user.id,
-      title,
-      description
-    });
-    res.redirect('/questions')
-  } else {
-    const errors = questionErrors.array().map(error => error.msg);
-    res.json({
-      errors
-    });
-  };
+  const newQuestion = await Question.create({
+    ownerId: req.user.id,
+    title,
+    description
+  });
+  res.json(newQuestion);
+  // if (questionErrors.isEmpty()) {
+  //   const createQuestion = await Question.create({
+  //     ownerId: req.user.id,
+  //     title,
+  //     description
+  //   });
+  //   res.redirect('/questions')
+  // } else {
+  //   const errors = questionErrors.array().map(error => error.msg);
+  //   res.json({
+  //     errors
+  //   });
+  // };
 
 }),
 );
 
 
-router.put('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, res, next) => {
+router.put('/:id(\\d+)', requireAuth, asyncHandler(async (req, res, next) => {
 
   const question = await Question.findByPk(req.params.id);
   const { title, description } = req.body;

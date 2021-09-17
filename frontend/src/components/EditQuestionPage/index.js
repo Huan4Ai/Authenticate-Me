@@ -4,7 +4,7 @@ import { useHistory } from "react-router";
 import { editAQuestion } from "../../store/question";
 import { getQuestion } from "../../store/question";
 
-const EditSingleQuestion() {
+function EditSingleQuestion() {
   const dispatch = useDispatch();
   const history = useHistory();
   const ownerId = useSelector((state) => state.session.user.id);
@@ -63,4 +63,4 @@ const EditSingleQuestion() {
 
 }
 
-export default editAQuestion;
+export default EditSingleQuestion;
