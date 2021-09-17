@@ -35,7 +35,6 @@ const  CreateSingleQuestion = ({hideForm}) => {
 
   const handleCancelClick = (e) => {
     e.preventDefault();
-    hideForm();
   };
 
   return (
