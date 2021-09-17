@@ -13,7 +13,7 @@ function ShowOneQuestion() {
 
   useEffect(() => {
     dispatch(getSingleQuestion(questionId))
-  }, [dispatch]);
+  }, [dispatch, questionId]);
 
 
   if (singleQuestion !== null || singleQuestion !== undefined) {
