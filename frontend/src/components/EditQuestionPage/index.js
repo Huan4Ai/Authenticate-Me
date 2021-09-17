@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { editAQuestion } from "../../store/question";
-import { getQuestion } from "../../store/question";
 
 function EditSingleQuestion() {
   const dispatch = useDispatch();
