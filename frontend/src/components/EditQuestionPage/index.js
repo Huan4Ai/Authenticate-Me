@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router";
-import { editAQuestion } from "../../store/question";
+import { useHistory, useParams } from "react-router-dom";
+import { editAQuestion, getQuestion } from "../../store/question";
 
 function EditSingleQuestion() {
   const dispatch = useDispatch();
@@ -24,8 +24,8 @@ function EditSingleQuestion() {
       description
     };
 
-    let createdQuestion = await dispatch(createAQuestion(payload));
-    if (createdQuestion) {
+    let editedQuestion = await dispatch(createAQuestion(payload));
+    if (editedQuestion) {
       history.push(`/questions/${createdQuestion.id}`);
       hideForm();
     }
