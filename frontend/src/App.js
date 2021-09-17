@@ -26,7 +26,7 @@ function App() {
           <Route path='/questions'exact>
             <ShowAllQuestions />
           </Route>
-          <Route path='/questions exact'>
+          <Route path='/questions' exact>
             <CreateSingleQuestion />
           </Route>
           <Route path='/questions/:questionId'exact>
