@@ -16,7 +16,7 @@ function EditSingleQuestion() {
 
   // });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e) async => {
     e.preventDefault();
     const payload = {
       ownerId,
