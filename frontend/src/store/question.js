@@ -105,7 +105,7 @@ const questionReducer = (state = ininitalState, action) => {
       return newState;
     case (REMOVE_QUESTION):
       newState = Object.assign({}, state);
-      action.payload.forEach((question) => {
+      action.payload["allQuestions"].forEach((question) => {
         newState[question.id] = question;
       })
       return newState;
