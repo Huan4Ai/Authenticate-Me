@@ -16,9 +16,12 @@ function EditSingleQuestion() {
     dispatch(editAQuestion(questionId))
   }, [dispatch, questionId]);
 
+  console.log(questionId);
+
   const handleEdit = async (e) => {
     e.preventDefault();
     const payload = {
+      id: questionId,
       title,
       description
     };
