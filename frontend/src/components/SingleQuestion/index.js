@@ -9,7 +9,6 @@ function ShowOneQuestion() {
   const { questionId } = useParams(); // has to be exactly same as in the APP.js route
   const dispatch = useDispatch();
   const singleQuestion = useSelector(state => state.question[questionId]);
-  console.log(singleQuestion);
 
   useEffect(() => {
     dispatch(getSingleQuestion(questionId))

@@ -1,65 +1,66 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { editAQuestion, getQuestion } from "../../store/question";
+import { editAQuestion } from "../../store/question";
 
 function EditSingleQuestion() {
   const dispatch = useDispatch();
+  const { questionId } = useParams();
   const history = useHistory();
-  const ownerId = useSelector((state) => state.session.user.id);
+  const singleQuestion = useSelector(state => state.question[questionId]);
 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
-  // useEffect(() => {
+  useEffect(() => {
+    dispatch(editAQuestion(questionId))
+  }, [dispatch, questionId]);
 
-
-  // });
-
-  const handleSubmit = (e) async => {
+  const handleEdit = async (e) => {
     e.preventDefault();
     const payload = {
-      ownerId,
       title,
       description
     };
 
-    let editedQuestion = await dispatch(createAQuestion(payload));
+    let editedQuestion = await dispatch(editAQuestion(payload));
     if (editedQuestion) {
-      history.push(`/questions/${createdQuestion.id}`);
-      hideForm();
+      history.push(`/questions/${questionId}`);
+      // hideForm();
     }
   };
 
   const handleCancelClick = (e) => {
     e.preventDefault();
-    hideForm();
+    // hideForm();
   };
 
-  return (
-    <div>
-      <h2>Create a question about dogs</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor='title'>Title:</label>
-          <input id='title' type='text' onChange={(e) => setTitle(e.target.value)} value={title} required />
-        </div>
-        <div>
-          <label htmlFor='description'>Description:</label>
-          <textarea id='description' type='text' onChange={(e) => setDescription(e.target.value)} value={description} required/>
-        </div>
-        <button type="submit">Submit</button>
-        <button type="button" onClick={handleCancelClick}>Cancel</button>
-      </form>
-    </div>
+  if (singleQuestion !== null || singleQuestion !== undefined) {
+    return (
+      <div>
+        <h2>Edit a question about dogs</h2>
+        <form onSubmit={handleEdit}>
+          <div>
+            <label htmlFor='title'>Title:</label>
+            <input id='title' type='text' onChange={(e) => setTitle(e.target.value)} value={title} required />
+          </div>
+          <div>
+            <label htmlFor='description'>Description:</label>
+            <textarea id='description' type='text' onChange={(e) => setDescription(e.target.value)} value={description} required />
+          </div>
+          <button type="submit">Submit</button>
+          <button type="button" onClick={handleCancelClick}>Cancel</button>
+        </form>
+      </div>
 
-  );
+    );
+  }
+
+  return null;
+
+  }
 
 
 
-}
-
-
-}
 
 export default EditSingleQuestion;

@@ -67,7 +67,7 @@ export const editAQuestion = (questionData) => async dispatch => {
   });
   if (response.ok) {
     const question = await response.json();
-    dispatch(editOneQuestion(editAQuestion));
+    dispatch(editOneQuestion(question));
     return question;
   }
 

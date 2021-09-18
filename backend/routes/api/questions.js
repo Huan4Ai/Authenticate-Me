@@ -70,7 +70,7 @@ router.post('/', requireAuth, asyncHandler(async (req, res, next) => {
 );
 
 
-router.put('/:id(\\d+)', requireAuth, asyncHandler(async (req, res, next) => {
+router.put('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
 
   const question = await Question.findByPk(req.params.id);
   const { title, description } = req.body;
@@ -80,7 +80,8 @@ router.put('/:id(\\d+)', requireAuth, asyncHandler(async (req, res, next) => {
       title,
       description
     });
-    res.redirect('/questions/:id')
+    res.json(question);
+    res.redirect('/questions/:id');
   } else if (req.user.id !== question.ownerId) {
     next(new Error("You are not authorized to update that"));
   } else {
