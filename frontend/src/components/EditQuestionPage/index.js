@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { editAQuestion } from "../../store/question";
@@ -12,9 +12,6 @@ function EditSingleQuestion() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
-  useEffect(() => {
-    dispatch(editAQuestion(questionId))
-  }, [dispatch, questionId]);
 
   console.log(questionId);
 

@@ -60,7 +60,7 @@ export const createAQuestion = (questionData) => async dispatch => {
 };
 
 export const editAQuestion = (questionData) => async dispatch => {
-  const response = await fetch(`/api/questions/${questionData.id}`, {
+  const response = await csrfFetch(`/api/questions/${questionData.id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(questionData),
