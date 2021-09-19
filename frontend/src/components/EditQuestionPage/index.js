@@ -13,7 +13,6 @@ function EditSingleQuestion() {
   const [description, setDescription] = useState('');
 
 
-  console.log(questionId);
 
   const handleEdit = async (e) => {
     e.preventDefault();

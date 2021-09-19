@@ -8,6 +8,7 @@ import ShowAllQuestions from "./components/QuestionsPage";
 import ShowOneQuestion from "./components/SingleQuestion";
 import CreateSingleQuestion from "./components/CreateQuestionPage";
 import EditSingleQuestion from "./components/EditQuestionPage";
+import DeleteSingleQuestion from "./components/DeleteQuestion";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ function App() {
           <Route path='/questions/:questionId'exact>
             <ShowOneQuestion />
             <EditSingleQuestion />
+            <DeleteSingleQuestion />
           </Route>
         </Switch>
       )}
