@@ -91,17 +91,18 @@ router.put('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
 
 }));
 
-router.delete('/:id(\\d+)', requireAuth, asyncHandler(async(req, res) => {
-
+router.delete('/:id(\\d+)', requireAuth, asyncHandler(async(req, res, next) => {
+    const questionId = req.params.id
     const question = await Question.findByPk(req.params.id);
     const currentUserId = req.user.id;
 
   if (question && (currentUserId === question.ownerId)) {
     await question.destroy();
-    const remainingQuestions = await Question.findAll( {
-        include: User
-      })
-    return res.json({remainingQuestions});
+    // const remainingQuestions = await Question.findAll( {
+    //     include: User
+    //   })
+    // return res.json({remainingQuestions});
+    return res.json({ questionId })
     } else if (!question) {
         next(new Error('Question not found'));
     } else if (currentUserId !== question.ownerId) {

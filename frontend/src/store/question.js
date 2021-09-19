@@ -2,8 +2,8 @@ import { csrfFetch } from "./csrf";
 
 const LOAD = 'questions/LOAD';
 const ADD_ONE = 'questions/ADD_ONE'
-const EDIT = 'questions/:id'
-const REMOVE_QUESTION = 'questions/:id'
+const EDIT = 'question/edit'
+const REMOVE_QUESTION = 'question/delete'
 
 
 const load = list => ({
@@ -77,14 +77,15 @@ export const editAQuestion = (questionData) => async dispatch => {
 export const removeAQuestion = (questionId) => async dispatch => {
   const response = await csrfFetch(`/api/questions/${questionId}`, {
     method: 'DELETE',
-    body: JSON.stringify(questionId)
   });
   if (response.ok) {
-    const remainingQuestions = await response.json();
-    dispatch(removeQuestion(remainingQuestions));
-    return remainingQuestions;
+    const data = await response.json();
+    // dispatch(removeAQuestion(remainingQuestions));
+    dispatch(removeQuestion(data.questionId)); // key name same as backend route json
+
+    return data;
   }
-  // dispatch(removeQuestion());
+
   // return response;
 };
 
@@ -112,9 +113,10 @@ const questionReducer = (state = ininitalState, action) => {
       return newState;
     case (REMOVE_QUESTION):
       newState = Object.assign({}, state);
-      action.payload["remainingQuestions"].forEach((question) => {
-        newState[question.id] = question;
-      })
+      // action.payload["remainingQuestions"].forEach((question) => {
+      //   newState[question.id] = question;
+      // })
+      delete newState[Number(action.payload)];
       return newState;
     default:
       return state;
