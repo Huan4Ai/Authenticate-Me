@@ -9,7 +9,7 @@ function DeleteSingleQuestion() {
 
   const handleDelete = (e) => {
     e.preventDefault();
-    dispatch(removeAQuestion(e.target.value));
+    dispatch(removeAQuestion(questionId));
   }
 
 
