@@ -111,3 +111,46 @@ router.delete('/:id(\\d+)', requireAuth, asyncHandler(async(req, res, next) => {
 }));
 
 module.exports = router;
+
+// const { check, validationResult } = require('express-validator');
+// const questionValidators = [
+//   check('title')
+//     .exists({ checkFalsy: true })
+//     .withMessage('Please provide a value for question')
+//     .isLength({ max: 1000 })
+//     .withMessage('User Name must not be more than 50 characters long')
+//     .custom((value) => {
+//       return db.User.findOne({ where: { user_name: value } })
+//         .then((user) => {
+//           if (user) {
+//             return Promise.reject('The provided user name is already in use by another account');
+//           }
+//         });
+//     })]
+//     /////POST NEW QUESTION/////
+// const questionValidator = [
+//   check('title')
+//     .exists({ checkFalsy: true })
+//     .withMessage('Please provide a value for Title')
+//     .isLength({ max: 1000 })
+//     .withMessage('Title must not be more than 1000 characters long')
+// ]
+
+// router.post('/questions', requireAuth, csrfProtection, questionValidator, asyncHandler(async(req,res)=>{
+//   const {title}=req.body;
+//   const validatorErrors = validationResult(req);
+
+//   if (validatorErrors.isEmpty()) {
+//     await db.Question.create({
+//       title,
+//       user_id:res.locals.user.id
+//     })
+//     res.redirect('/');
+//   } else {
+//     const errors = validatorErrors.array().map((error) => error.msg);
+//     res.render('create-question', {
+//       errors,
+//       token: req.csrfToken(),
+//     });
+//   }
+// }));

@@ -38,7 +38,7 @@ export const getQuestion = () => async dispatch => {
 };
 
 export const getSingleQuestion = (questionId) => async dispatch => {
-  const response = await fetch(`/api/questions/${questionId}`);
+  const response = await csrfFetch(`/api/questions/${questionId}`);
 
   if (response.ok) {
     const question = await response.json();
