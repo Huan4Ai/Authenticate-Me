@@ -10,31 +10,46 @@ function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
 
   let sessionLinks;
-  if (sessionUser) {
-    sessionLinks = (
-      <ProfileButton user={sessionUser} />
-    );
-  } else {
-    sessionLinks = (
-      <>
-        <LoginFormModal />
-        <NavLink to="/signup">Sign Up</NavLink>
-      </>
-    );
-  }
+  // if a user is signed in
+
+  // if (sessionUser) {
+  //   sessionLinks = (
+  // // render the profile button as a link
+  //     <ProfileButton user={sessionUser} />
+  //   );
+  // } else {
+  //   sessionLinks = (
+  //     <>
+  //       <LoginFormModal />
+  //       <NavLink to="/signup">Sign Up</NavLink>
+  //     </>
+  //   );
+  // }
 
   return (
-    <div>
-      <ul>
-        <li>
-          <NavLink exact to="/">Home</NavLink>
-          {isLoaded && sessionLinks}
-        </li>
-        <li>
-          <NavLink to ="/questions">Questions</NavLink>
-        </li>
-      </ul>
-      <img src={pugPic} alt="puppy"></img>
+    <div className="nav-container">
+
+      <NavLink exact to="/">Doguora</NavLink>
+      {isLoaded && sessionLinks}
+
+      <button>
+        <div className="Button">
+          <i className="fas fa-home" />
+        </div>
+      </button>
+
+      <button>
+        <div className="Button">
+          <i className="fas fa-pencil-alt" />
+        </div>
+      </button>
+
+      <NavLink to="/questions">
+        <button type="button" id="addQuestion">
+          Add question
+        </button>
+      </NavLink>
+
     </div>
   );
 }

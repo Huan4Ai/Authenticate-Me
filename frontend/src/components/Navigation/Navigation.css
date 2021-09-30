@@ -1,0 +1,24 @@
+.Button{
+  font-size: 20px;
+  opacity: 0.6;
+}
+
+#addQuestion {
+  transition-duration: 0.4s;
+  background-color: #b92b27;
+  height: 30px;
+  min-width: 30px;
+  position: relative;
+  border-width: 0px;
+  color: white;
+  border-radius: 10px;
+}
+
+#addQuestion:hover {
+  background-color: #b92b27; /* Green */
+  color: white;
+}
+
+.nav-container {
+  background-color:gainsboro;
+}
