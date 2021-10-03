@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
-import pugPic from '../../images/1-200P3223325910.jpg'
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
@@ -43,6 +42,8 @@ function Navigation({ isLoaded }){
           <i className="fas fa-pencil-alt" />
         </div>
       </button>
+
+      <input type="text" placeholder="Search Doguora"></input>
 
       <NavLink to="/questions">
         <button type="button" id="addQuestion">
