@@ -1,4 +1,4 @@
-.Button{
+.Button {
   font-size: 20px;
   opacity: 0.6;
 }
@@ -20,5 +20,10 @@
 }
 
 .nav-container {
-  background-color:gainsboro;
+  background-color: gainsboro;
+}
+
+#DuoguoraImage {
+  height: 100px;
+  width: 100px;
 }
