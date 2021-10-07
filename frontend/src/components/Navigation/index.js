@@ -77,7 +77,7 @@ function Navigation({ isLoaded }){
 
       <div className="Header_center">
         <div>
-          <input type="text" placeholder="Search" />
+          <input type="text" placeholder="Search" className="center_inputField" />
           <i className="fas fa-search" />
         </div>
       </div>
@@ -86,7 +86,7 @@ function Navigation({ isLoaded }){
         <div className="right_user">
         <ProfileButton user={sessionUser} />
         </div>
-        <button>Add Question</button>
+        <button className="right_btn">Add Question</button>
       </div>
 
     </div>

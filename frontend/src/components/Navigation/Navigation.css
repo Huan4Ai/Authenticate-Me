@@ -58,7 +58,27 @@
   margin-left: 0.6em;
 }
 
-/* .Header_center {
+.Header_center {
   display: flex;
   align-items: center;
-} */
+  margin-right: 25%;
+  border: 1px solid lightgray;
+}
+
+.Header_center:hover {
+  border: 1px solid blue;
+}
+
+.center_inputField {
+  border: none;
+}
+
+.Header_right {
+  display: flex;
+  align-items: center;
+}
+
+.right_user,
+.right_btn {
+  margin-right: 1em;
+}
