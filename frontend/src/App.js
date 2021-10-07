@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import LoginForm from "./components/LoginFormModal/LoginForm";
 import * as sessionActions from "./store/session";
@@ -20,7 +20,6 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
-  console.log(isLoaded);
 
   // if (!session) {
   //   return (
@@ -34,7 +33,7 @@ function App() {
     <>
       {isLoaded && (
       <div>
-        {session && <Navigation isLoaded={isLoaded} />}
+      {session && <Navigation isLoaded={isLoaded} />}
       <Switch>
         <Route path="/" exact>
           {session? <ShowAllQuestions /> : <LoginForm />}
@@ -49,7 +48,8 @@ function App() {
         </Route>
       </Switch>
       </div>
-      )}</>
+      )}
+    </>
   );
 }
 
