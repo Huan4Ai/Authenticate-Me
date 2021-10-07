@@ -1,4 +1,4 @@
-.Button {
+/* .Button {
   font-size: 20px;
   opacity: 0.6;
 }
@@ -16,7 +16,7 @@
 
 #addQuestion:hover {
   background-color: #b92b27; /* Green */
-  color: white;
+  /* color: white;
 }
 
 .nav-container {
@@ -26,4 +26,39 @@
 #DuoguoraImage {
   height: 100px;
   width: 100px;
+} */
+
+.Header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /* margin-top: -50px; */
 }
+
+.Header_left {
+  display: flex;
+  align-items: center;
+}
+
+.left_logo {
+  width: 60%;
+}
+
+.left_logoImage{
+  width: 100%;
+}
+
+/* .left_home,
+.left_answers {
+  display: flex;
+  align-items: center;
+} */
+
+.left_answers {
+  margin-left: 0.6em;
+}
+
+/* .Header_center {
+  display: flex;
+  align-items: center;
+} */

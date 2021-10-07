@@ -7,9 +7,13 @@ import './Navigation.css';
 import logo from '../../images/logo1.png'
 
 function Navigation({ isLoaded }){
-  // const sessionUser = useSelector(state => state.session.user);
+  const sessionUser = useSelector(state => state.session.user);
 
   let sessionLinks;
+  // const location = window.location.href;
+
+  // console.log(location)
+  // http://localhost:3000/
   // // if a user is signed in
 
   // if (sessionUser) {
@@ -57,9 +61,11 @@ function Navigation({ isLoaded }){
     // </div>
 
     <div className="Header">
+
+
       <div className="Header_left">
         <div className="left_logo">
-          <img src={logo} alt="Company Logo" />
+          <img src={logo} alt="Company Logo" className="left_logoImage" />
         </div>
         <div className="left_home">
           <i className="fas fa-home" />
@@ -71,9 +77,16 @@ function Navigation({ isLoaded }){
 
       <div className="Header_center">
         <div>
-
+          <input type="text" placeholder="Search" />
+          <i className="fas fa-search" />
         </div>
+      </div>
 
+      <div className="Header_right">
+        <div className="right_user">
+        <ProfileButton user={sessionUser} />
+        </div>
+        <button>Add Question</button>
       </div>
 
     </div>
