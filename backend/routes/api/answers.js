@@ -10,6 +10,8 @@ router.get('/', asyncHandler(async (req, res) => {
   res.json(answers);
 })
 
-)
+);
+
+
 
 module.exports = router;
