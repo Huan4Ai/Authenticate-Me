@@ -39,12 +39,12 @@ function App() {
           {session? <ShowAllQuestions /> : <LoginForm />}
         </Route>
         <Route path='/questions' exact>
-            <CreateSingleQuestion />
+              {session? <CreateSingleQuestion /> : <LoginForm />}
         </Route>
         <Route path='/questions/:questionId' exact>
-            <ShowOneQuestion />
-            <EditSingleQuestion />
-            <DeleteSingleQuestion />
+              {session? <ShowOneQuestion /> : <LoginForm />}
+              {session? <EditSingleQuestion /> : null}
+              {session? <DeleteSingleQuestion /> : null}
         </Route>
       </Switch>
       </div>
