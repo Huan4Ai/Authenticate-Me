@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import "./LoginForm.css"
-import logo from '../../images/logo1.png'
 
 function LoginForm() {
   const dispatch = useDispatch();

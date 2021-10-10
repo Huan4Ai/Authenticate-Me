@@ -8,3 +8,18 @@
   font-family: 'Montserrat', sans-serif;
   color: rgb(185, 43, 39);
 }
+
+.login_container {
+  display: flex;
+  justify-content: center;
+}
+
+/* .title_form_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.doguora_title {
+  text-align: center;
+}
