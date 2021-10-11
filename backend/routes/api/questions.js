@@ -1,7 +1,7 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const {User, Question} = require('../../db/models')
+const {User, Question, Answer} = require('../../db/models')
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 const csrf = require('csurf');
@@ -109,6 +109,24 @@ router.delete('/:id(\\d+)', requireAuth, asyncHandler(async(req, res, next) => {
         next(new Error('You are not authorized to delete that. You are not that user.'));
     }
 }));
+
+
+// Showing all answers for a specific question
+router.get('/:id(\\d+)/answers', asyncHandler(async (req, res, next) => {
+  const allAnswers = await Answer.findAll({
+    // include: Question,
+    where: { questionId: req.params.id }
+  });
+
+  return res.json(
+    allAnswers,
+  );
+
+
+}));
+
+
+
 
 module.exports = router;
 
