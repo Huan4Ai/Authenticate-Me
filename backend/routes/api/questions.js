@@ -125,19 +125,21 @@ router.get('/:id(\\d+)/answers', asyncHandler(async (req, res, next) => {
 
 }));
 
-router.post('/:id(\\d+)/answers', asyncHandler(async (req, res, next) => {
+// Adding an answer to a specific question
+router.post('/:id(\\d+)/answers', requireAuth, asyncHandler(async (req, res, next) => {
 
   const { answer } = req.body;
-  console.log(answer)
   const newAnswer = await Answer.create({
-    userId: 2,
+    userId: req.user.id,
     questionId: req.params.id,
     answer
   });
   res.json(newAnswer);
 
-
 }));
+
+
+
 
 module.exports = router;
 
