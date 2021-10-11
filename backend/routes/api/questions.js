@@ -125,8 +125,18 @@ router.get('/:id(\\d+)/answers', asyncHandler(async (req, res, next) => {
 
 }));
 
+router.post('/:id(\\d+)/answers', asyncHandler(async (req, res, next) => {
+
+  const { answer } = req.body;
+  const newAnswer = await Answer.create({
+    userId: 2,
+    questionId: req.params.id,
+    answer
+  });
+  res.json(newAnswer);
 
 
+}));
 
 module.exports = router;
 
