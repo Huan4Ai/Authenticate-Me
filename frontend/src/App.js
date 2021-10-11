@@ -38,6 +38,9 @@ function App() {
         <Route path="/" exact>
           {session? <ShowAllQuestions /> : <LoginForm />}
         </Route>
+        <Route path="signup">
+          <SignupFormPage />
+        </Route>
         <Route path='/questions' exact>
               {session? <CreateSingleQuestion /> : <LoginForm />}
         </Route>
