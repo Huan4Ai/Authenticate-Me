@@ -47,6 +47,7 @@ export const getAnswers = (id) => async (dispatch) => {
 
   if (response.ok) {
     const allAnswers = await response.json();
+
     dispatch(load_Answers(allAnswers, id));
   };
 };

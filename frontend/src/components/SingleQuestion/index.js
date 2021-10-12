@@ -17,7 +17,12 @@ function ShowOneQuestion() {
 
   if (singleQuestion !== null || singleQuestion !== undefined) {
       return (
-       <ul>{<li><div>{singleQuestion?.title}</div><div>{singleQuestion?.description}</div></li>}</ul>
+       <ul>
+          <li>
+            <div>{singleQuestion?.title}</div>
+            <div>{singleQuestion?.description}</div>
+          </li>
+        </ul>
 
   )
   }
