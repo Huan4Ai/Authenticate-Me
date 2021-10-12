@@ -5,23 +5,48 @@ const ADD_ONE_ANSWER = 'questions//:id(\\d+)/ADD_ONE_ANSWER'
 const EDIT_ANSWER = 'answer/EDIT_ANSWER'
 const DELETE_ANSWER = 'answer/DELETE_ANSWER'
 
-const load_Answers = answers => ({
-  type: LOAD_ANSWERS,
-  payload: answers
-});
+const load_Answers = (allAnswers, questionId) => {
+  return {
+    type: LOAD_ANSWERS,
+    allAnswers,
+    questionId
+  }
 
-const addOneAnswer = answer => ({
-  type: ADD_ONE,
-  payload: answer
-});
+};
 
-const editOneAnswer = editAnswer => ({
-  type: EDIT,
-  payload: editAnswer
-});
+const addOneAnswer = (singleAnswer, questionId) => {
 
-const removeAnswer = deleteAnswer => ({
-  type: REMOVE_ANSWER,
-  payload: deleteAnswer
-})
+  return {
+    type: ADD_ONE_ANSWER,
+    singleAnswer,
+    questionId
+  }
 
+};
+
+const editOneAnswer = (editAnswer) => {
+
+  return {
+    type: EDIT_ANSWER,
+    editAnswer
+  }
+
+};
+
+const removeAnswer = (deleteAnswer) => {
+
+  return {
+    type: DELETE_ANSWER,
+    deleteAnswer
+  }
+
+};
+
+export const getAnswers = (id) => async (dispatch) => {
+  const response = await fetch(`/api/questions/${id}/answers`);
+
+  if (response.ok) {
+    const allAnswers = await response.json();
+    dispatch(load_Answers(allAnswers, id));
+  };
+};

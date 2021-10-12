@@ -7,33 +7,6 @@ const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { User, Question, Answer } = require('../../db/models');
 
 
-// Showing all answers for a specific question
-router.get('/:id(\\d+)/answers', asyncHandler(async (req, res, next) => {
-  const allAnswers = await Answer.findAll({
-    // include: Question,
-    where: { questionId: req.params.id }
-  });
-
-  return res.json(
-    allAnswers,
-  );
-
-
-}));
-
-// Adding an answer to a specific question
-router.post('/:id(\\d+)/answers', requireAuth, asyncHandler(async (req, res, next) => {
-
-  const { answer } = req.body;
-  const newAnswer = await Answer.create({
-    userId: req.user.id,
-    questionId: req.params.id,
-    answer
-  });
-  res.json(newAnswer);
-
-}));
-
 
 
 
