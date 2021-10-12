@@ -1,29 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const asyncHandler = require('express-async-handler');
-const { setTokenCookie, requireAuth } = require('../../utils/auth');
-
-
+const { requireAuth } = require('../../utils/auth');
 const { User, Question, Answer } = require('../../db/models');
 
+const router = express.Router();
 
-
-
-
-//Get an answer with the given id
-router.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
-  const singleAnswer = await Answer.findByPk(req.params.id)
-  if (singleAnswer) {
-    return res.json(
-      singleAnswer
-    )
-  } else {
-    next(new Error("Question not found"));
-  };
-
-}),
-
-);
 
 // Edit an answer with the given id
 router.put('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {

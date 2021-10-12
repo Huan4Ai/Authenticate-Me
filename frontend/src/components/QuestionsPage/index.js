@@ -14,7 +14,14 @@ function ShowAllQuestions() {
   }, [dispatch]);
 
   return (
-    <ul>{Object.keys(questions).map(key => <li key={questions[key].id}><Link to={`/questions/${questions[key].id}`}><div>{questions[key].title}</div></Link><div>{questions[key].description}</div></li>)}</ul>);
+    <ul>{Object.keys(questions).map(key =>
+        <li key={questions[key].id}>
+        <Link to={`/questions/${questions[key].id}`}>
+          <div>{questions[key].title}</div>
+        </Link>
+        </li>)}
+    </ul>
+  );
 
   // return null;
 

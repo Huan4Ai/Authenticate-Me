@@ -14,30 +14,30 @@ export const load_Answers = (allAnswers, questionId) => {
 
 };
 
-const addOneAnswer = (singleAnswer, questionId) => {
+export const addOneAnswer = (answer) => {
 
   return {
     type: ADD_ONE_ANSWER,
-    singleAnswer,
-    questionId
+    answer
   }
 
 };
 
-const editOneAnswer = (editAnswer) => {
+export const editOneAnswer = (answer) => {
 
   return {
     type: EDIT_ANSWER,
-    editAnswer
+    answer
   }
 
 };
 
-const removeAnswer = (deleteAnswer) => {
+export const removeAnswer = (answerId, questionId) => {
 
   return {
     type: DELETE_ANSWER,
-    deleteAnswer
+    answerId,
+    questionId
   }
 
 };
@@ -51,6 +51,50 @@ export const getAnswers = (id) => async (dispatch) => {
     dispatch(load_Answers(allAnswers, id));
   };
 };
+
+export const createAnswer = (data, questionId) => async (dispatch) => {
+  const response = await fetch(`/api/questions/${questionId}/answers`, {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  });
+
+  if (response.ok) {
+    const answer = await response.json();
+    dispatch(addOneAnswer(answer));
+    return answer;
+  }
+};
+
+export const updateAnswer = (data) => async (dispatch) => {
+  const response = await fetch(`/api/answers/${data.id}`, {
+    method: 'put',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  });
+
+  if (response.ok) {
+    const answer = await response.json();
+    dispatch(updateAnswer(answer));
+    return answer;
+  }
+};
+
+export const deleteAnswer = (itemId) => async (dispatch) => {
+  const response = await fetch(`/api/answers/${itemId}`, {
+    method: 'delete'
+  });
+
+  if (response.ok) {
+    const answer = await response.json();
+    dispatch(deleteAnswer(answer.id, answer.questionId));
+  }
+};
+
 
 const ininitalState = {};
 
