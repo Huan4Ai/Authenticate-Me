@@ -21,6 +21,12 @@ function LoginForm() {
     );
   };
 
+  const demoButton = async (e) => {
+    setCredential("Demo-lition");
+    setPassword("password");
+    e.preventDefault();
+  }
+
   return (
     <div className="login_container">
       <div className="title_form_container">
@@ -75,6 +81,7 @@ function LoginForm() {
           <button type="submit" className="login_button">Login</button>
         </form>
       <NavLink to="/signup">Sign Up</NavLink>
+      <button onClick={demoButton}>Demo User</button>
       </div>
     </div>
   );
