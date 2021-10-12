@@ -5,7 +5,7 @@ const ADD_ONE_ANSWER = 'questions//:id(\\d+)/ADD_ONE_ANSWER'
 const EDIT_ANSWER = 'answer/EDIT_ANSWER'
 const DELETE_ANSWER = 'answer/DELETE_ANSWER'
 
-const load_Answers = (allAnswers, questionId) => {
+export const load_Answers = (allAnswers, questionId) => {
   return {
     type: LOAD_ANSWERS,
     allAnswers,
@@ -50,3 +50,26 @@ export const getAnswers = (id) => async (dispatch) => {
     dispatch(load_Answers(allAnswers, id));
   };
 };
+
+const ininitalState = {};
+
+const answersReducer = (state = ininitalState, action) => {
+  switch (action.type) {
+    case LOAD_ANSWERS: {
+      const newAnswers = {};
+      action.allAnswers.forEach((answer) => {
+        newAnswers[answer.id] = answer;
+      });
+      return {
+        ...state,
+        ...newAnswers
+      };
+    }
+
+
+    default:
+      return state;
+  }
+};
+
+export default answersReducer;
