@@ -9,12 +9,21 @@ function ShowAllAnswers() {
   const dispatch = useDispatch();
   const answers = useSelector(state => state.answer);
   const questionId = useParams();
+  console.log(answers)
 
   useEffect(() => {
     dispatch(getAnswers(questionId.questionId))
   }, [dispatch, questionId]);
 
-  return null;
+  return (
+    <ul>{Object.keys(answers).map(key =>
+        <li key={answers[key].id}>
+          <div>{answers[key].answer}</div>
+        </li>)}
+    </ul>
+
+
+  );
 }
 
 
