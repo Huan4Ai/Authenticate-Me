@@ -4,25 +4,27 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router";
 import { getAnswers } from "../../store/answer";
-
+import { NavLink } from "react-router-dom";
 function ShowAllAnswers() {
   const dispatch = useDispatch();
   const answers = useSelector(state => state.answer);
-  const questionId = useParams();
-  console.log(answers)
+  const questionId = useParams().questionId;
 
   useEffect(() => {
     dispatch(getAnswers(questionId.questionId))
   }, [dispatch, questionId]);
 
   return (
-    <ul>{Object.keys(answers).map(key =>
-        <li key={answers[key].id}>
-          <div>{answers[key].answer}</div>
-        </li>)}
-    </ul>
-
-
+    <div>
+      <ul>{Object.keys(answers).map(key =>
+          <li key={answers[key].id}>
+            <div>{answers[key].answer}</div>
+          </li>)}
+      </ul>
+      <NavLink to={`/questions/${questionId}/createAnswer`}>
+        Create An Answer
+      </NavLink>
+    </div>
   );
 }
 

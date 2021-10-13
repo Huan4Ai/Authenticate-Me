@@ -11,6 +11,7 @@ import CreateSingleQuestion from "./components/CreateQuestionPage";
 import EditSingleQuestion from "./components/EditQuestionPage";
 import DeleteSingleQuestion from "./components/DeleteQuestion";
 import ShowAllAnswers from "./components/AnswersPage";
+import CreateSingleAnswer from "./components/AddAnswerPage"
 
 function App() {
   const dispatch = useDispatch();
@@ -43,13 +44,16 @@ function App() {
           <SignupFormPage />
         </Route>
         <Route path='/questions' exact>
-              {session? <CreateSingleQuestion /> : <LoginForm />}
+          {session? <CreateSingleQuestion /> : <LoginForm />}
         </Route>
         <Route path='/questions/:questionId' exact>
-              {session? <ShowOneQuestion /> : <LoginForm />}
-              {session? <EditSingleQuestion /> : null}
-              {session ? <DeleteSingleQuestion /> : null}
-              {session ? <ShowAllAnswers /> : null}
+          {session? <ShowOneQuestion /> : <LoginForm />}
+          {session? <EditSingleQuestion /> : null}
+          {session ? <DeleteSingleQuestion /> : null}
+          {session ? <ShowAllAnswers /> : null}
+        </Route>
+        <Route path="/questions/:questionId/createAnswer">
+          {session? <CreateSingleAnswer /> : null}
         </Route>
       </Switch>
       </div>

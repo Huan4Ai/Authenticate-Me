@@ -86,7 +86,9 @@ function Navigation({ isLoaded }){
         <div className="right_user">
         <ProfileButton user={sessionUser} />
         </div>
-        <button className="right_btn">Add Question</button>
+        <NavLink to="/questions">
+          <button className="right_btn">Add Question</button>
+        </NavLink>
       </div>
 
     </div>
