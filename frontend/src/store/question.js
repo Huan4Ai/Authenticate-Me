@@ -21,9 +21,9 @@ const editOneQuestion = editQuestion => ({
   payload: editQuestion
 });
 
-const removeQuestion = list => ({
+const removeQuestion = questionId => ({
   type: REMOVE_QUESTION,
-  payload: list
+  payload: questionId
 })
 
 export const getQuestion = () => async dispatch => {
@@ -80,13 +80,11 @@ export const removeAQuestion = (questionId) => async dispatch => {
   });
   if (response.ok) {
     const data = await response.json();
-    // dispatch(removeAQuestion(remainingQuestions));
-    dispatch(removeQuestion(data.questionId)); // key name same as backend route json
+    dispatch(removeQuestion(data.id)); // key name same as backend route json
 
     return data;
   }
 
-  // return response;
 };
 
 const ininitalState = {};
@@ -116,8 +114,9 @@ const questionReducer = (state = ininitalState, action) => {
       // action.payload["remainingQuestions"].forEach((question) => {
       //   newState[question.id] = question;
       // })
-      delete newState[Number(action.payload)];
-      return newState;
+      const newState1 = { ...state };
+      delete newState1[action.questionId];
+      return newState1;
     default:
       return state;
 

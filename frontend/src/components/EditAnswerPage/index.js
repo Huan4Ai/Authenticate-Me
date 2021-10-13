@@ -13,7 +13,6 @@ function EditSingleAnswer() {
   const reset = () => {
     setAnswer("");
   }
-  console.log(singleAnswer)
 
   const handleEdit = async (e) => {
     e.preventDefault();
@@ -29,7 +28,7 @@ function EditSingleAnswer() {
 
   };
 
-  
+
   return (
     <h1>hhh</h1>
   )

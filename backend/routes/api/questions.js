@@ -102,7 +102,7 @@ router.delete('/:id(\\d+)', requireAuth, asyncHandler(async(req, res, next) => {
     //     include: User
     //   })
     // return res.json({remainingQuestions});
-    return res.json({ questionId })
+    return res.json(questionId)
     } else if (!question) {
         next(new Error('Question not found'));
     } else if (currentUserId !== question.ownerId) {
