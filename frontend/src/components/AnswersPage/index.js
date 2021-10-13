@@ -19,7 +19,7 @@ function ShowAllAnswers() {
       <ul>{Object.keys(answers).map(key =>
           <li key={answers[key].id}>
           <div>{answers[key].answer}</div>
-          <NavLink to="/answers/:answerId">Edit this answer</NavLink>
+          <NavLink to={`/answers/${answers[key].id}`}>Edit this answer</NavLink>
           </li>)}
       </ul>
       <NavLink to={`/questions/${questionId}/createAnswer`}>

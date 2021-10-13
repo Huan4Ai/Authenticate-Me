@@ -11,7 +11,8 @@ import CreateSingleQuestion from "./components/CreateQuestionPage";
 import EditSingleQuestion from "./components/EditQuestionPage";
 import DeleteSingleQuestion from "./components/DeleteQuestion";
 import ShowAllAnswers from "./components/AnswersPage";
-import CreateSingleAnswer from "./components/AddAnswerPage"
+import CreateSingleAnswer from "./components/AddAnswerPage";
+import EditSingleAnswer from "./components/EditAnswerPage"
 
 function App() {
   const dispatch = useDispatch();
@@ -56,7 +57,7 @@ function App() {
           {session? <CreateSingleAnswer /> : null}
         </Route>
         <Route path="/answers/:answerId">
-          
+          {session? <EditSingleAnswer /> : null}
         </Route>
       </Switch>
       </div>
