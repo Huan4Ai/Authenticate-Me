@@ -65,7 +65,9 @@ function Navigation({ isLoaded }){
 
       <div className="Header_left">
         <div className="left_logo">
-          <img src={logo} alt="Company Logo" className="left_logoImage" />
+          <NavLink to="/">
+            <img src={logo} alt="Company Logo" className="left_logoImage" />
+          </NavLink>
         </div>
         <div className="left_home">
           <i className="fas fa-home" />

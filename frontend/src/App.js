@@ -55,6 +55,9 @@ function App() {
         <Route path="/questions/:questionId/createAnswer">
           {session? <CreateSingleAnswer /> : null}
         </Route>
+        <Route path="/answers/:answerId">
+
+        </Route>
       </Switch>
       </div>
       )}
