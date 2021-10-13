@@ -18,6 +18,22 @@ const CreateSingleAnswer = () => {
     setAnswer("");
   }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const data = {
+      userId,
+      questionId,
+      answer
+    };
+    let createdAnswer = await dispatch(createAnswer(data, questionId));
+    if (createdAnswer) {
+      history.push(`/questions/${questionId}/createAnswer`)
+      reset();
+    }
+
+
+  }
+
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
   //   const data = {
@@ -35,7 +51,7 @@ const CreateSingleAnswer = () => {
   return (
     <div>
       <h2>Create an answer</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor='answer'>Answer:</label>
           <input id='answer' type='text' onChange={(e) => setAnswer(e.target.value)} value={answer} required />
