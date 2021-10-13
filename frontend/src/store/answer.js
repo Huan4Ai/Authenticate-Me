@@ -79,7 +79,7 @@ export const updateAnswer = (data) => async (dispatch) => {
 
   if (response.ok) {
     const answer = await response.json();
-    dispatch(updateAnswer(answer));
+    dispatch(editOneAnswer(answer));
     return answer;
   }
 };
@@ -91,7 +91,7 @@ export const deleteAnswer = (itemId) => async (dispatch) => {
 
   if (response.ok) {
     const answer = await response.json();
-    dispatch(deleteAnswer(answer.id, answer.questionId));
+    dispatch(removeAnswer(answer.id, answer.questionId));
   }
 };
 

@@ -34,19 +34,6 @@ const CreateSingleAnswer = () => {
 
   }
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const data = {
-  //     ownerId,
-  //     title,
-  //     description
-  //   };
-
-  //   let createdQuestion = await dispatch(createAQuestion(payload));
-  //   if (createdQuestion) {
-  //     history.push(`/questions/${createdQuestion.id}`);
-  //   }
-  //   reset();
 
   return (
     <div>
