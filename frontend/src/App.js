@@ -47,7 +47,8 @@ function App() {
         <Route path='/questions/:questionId' exact>
               {session? <ShowOneQuestion /> : <LoginForm />}
               {session? <EditSingleQuestion /> : null}
-              {session? <DeleteSingleQuestion /> : null}
+              {session ? <DeleteSingleQuestion /> : null}
+              
         </Route>
       </Switch>
       </div>

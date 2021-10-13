@@ -43,7 +43,7 @@ export const removeAnswer = (answerId, questionId) => {
 };
 
 export const getAnswers = (id) => async (dispatch) => {
-  const response = await fetch(`/api/questions/${id}/answers`);
+  const response = await csrfFetch(`/api/questions/${id}/answers`);
 
   if (response.ok) {
     const allAnswers = await response.json();
@@ -53,7 +53,7 @@ export const getAnswers = (id) => async (dispatch) => {
 };
 
 export const createAnswer = (data, questionId) => async (dispatch) => {
-  const response = await fetch(`/api/questions/${questionId}/answers`, {
+  const response = await csrfFetch(`/api/questions/${questionId}/answers`, {
     method: 'post',
     headers: {
       'Content-Type': 'application/json'
@@ -69,7 +69,7 @@ export const createAnswer = (data, questionId) => async (dispatch) => {
 };
 
 export const updateAnswer = (data) => async (dispatch) => {
-  const response = await fetch(`/api/answers/${data.id}`, {
+  const response = await csrfFetch(`/api/answers/${data.id}`, {
     method: 'put',
     headers: {
       'Content-Type': 'application/json'
@@ -85,7 +85,7 @@ export const updateAnswer = (data) => async (dispatch) => {
 };
 
 export const deleteAnswer = (itemId) => async (dispatch) => {
-  const response = await fetch(`/api/answers/${itemId}`, {
+  const response = await csrfFetch(`/api/answers/${itemId}`, {
     method: 'delete'
   });
 
@@ -110,7 +110,25 @@ const answersReducer = (state = ininitalState, action) => {
         ...newAnswers
       };
     }
+    case ADD_ONE_ANSWER: {
+      return {
+        ...state,
+        [action.answer.id]: action.answer
+      };
+    }
 
+    case EDIT_ANSWER: {
+      return {
+        ...state,
+        [action.answer.id]: action.answer
+      };
+    }
+
+    case DELETE_ANSWER: {
+      const newState = { ...state };
+      delete newState[action.answerId];
+      return newState;
+    }
 
     default:
       return state;
