@@ -56,7 +56,7 @@ function App() {
           {session? <CreateSingleAnswer /> : null}
         </Route>
         <Route path="/answers/:answerId">
-
+          
         </Route>
       </Switch>
       </div>

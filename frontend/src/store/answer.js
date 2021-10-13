@@ -106,7 +106,6 @@ const answersReducer = (state = ininitalState, action) => {
         newAnswers[answer.id] = answer;
       });
       return {
-        ...state,
         ...newAnswers
       };
     }
