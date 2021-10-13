@@ -11,7 +11,7 @@ function ShowAllAnswers() {
   const questionId = useParams();
 
   useEffect(() => {
-    dispatch(getAnswers(questionId))
+    dispatch(getAnswers(questionId.questionId))
   }, [dispatch, questionId]);
 
   return null;

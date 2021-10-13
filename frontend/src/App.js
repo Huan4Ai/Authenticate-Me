@@ -10,6 +10,7 @@ import ShowOneQuestion from "./components/SingleQuestion";
 import CreateSingleQuestion from "./components/CreateQuestionPage";
 import EditSingleQuestion from "./components/EditQuestionPage";
 import DeleteSingleQuestion from "./components/DeleteQuestion";
+import ShowAllAnswers from "./components/AnswersPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -48,7 +49,7 @@ function App() {
               {session? <ShowOneQuestion /> : <LoginForm />}
               {session? <EditSingleQuestion /> : null}
               {session ? <DeleteSingleQuestion /> : null}
-              
+              {session ? <ShowAllAnswers /> : null}
         </Route>
       </Switch>
       </div>
