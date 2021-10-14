@@ -27,12 +27,12 @@ const CreateSingleAnswer = () => {
     };
     let createdAnswer = await dispatch(createAnswer(data, questionId));
     if (createdAnswer) {
-      history.push(`/questions/${questionId}/createAnswer`)
+      history.push(`/questions/${questionId}`)
       reset();
     }
 
 
-  }
+  };
 
 
   return (
