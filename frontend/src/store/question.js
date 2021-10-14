@@ -80,7 +80,6 @@ export const removeAQuestion = (questionId) => async dispatch => {
   });
   if (response.ok) {
     const data = await response.json();
-    console.log(data, "1111");
     dispatch(removeQuestion(data)); // key name same as backend route json
 
     return data;
