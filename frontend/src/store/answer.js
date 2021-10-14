@@ -32,12 +32,11 @@ export const editOneAnswer = (answer) => {
 
 };
 
-export const removeAnswer = (answerId, questionId) => {
+export const removeAnswer = (answerId) => {
 
   return {
     type: DELETE_ANSWER,
-    answerId,
-    questionId
+    answerId
   }
 
 };
@@ -84,14 +83,14 @@ export const updateAnswer = (data) => async (dispatch) => {
   }
 };
 
-export const deleteAnswer = (itemId) => async (dispatch) => {
-  const response = await csrfFetch(`/api/answers/${itemId}`, {
+export const deleteAnswer = (answerId) => async (dispatch) => {
+  const response = await csrfFetch(`/api/answers/${answerId}`, {
     method: 'delete'
   });
 
   if (response.ok) {
-    const answer = await response.json();
-    dispatch(removeAnswer(answer.id, answer.questionId));
+    const data = await response.json();
+    dispatch(removeAnswer(data));
   }
 };
 
