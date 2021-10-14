@@ -10,6 +10,7 @@ module.exports = {
       */
     return queryInterface.bulkInsert('Questions', [
       {
+        "id": 1,
         "ownerId": 1,
         "title": "What are some unknown facts about dogs?",
         "description": "As human's best friends, many people love dogs. I love dogs and I want to learn about them too! Can someone give me more details about dogs?",
@@ -17,6 +18,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        "id": 2,
         "ownerId": 2,
         "title": "What are the benefits of getting a dog as a pet?",
         "description": "I have seen many of my friends having a dog as pet. What are the benefits of owning a dog?",
