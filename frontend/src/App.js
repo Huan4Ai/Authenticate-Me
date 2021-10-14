@@ -13,6 +13,7 @@ import DeleteSingleQuestion from "./components/DeleteQuestion";
 import ShowAllAnswers from "./components/AnswersPage";
 import CreateSingleAnswer from "./components/AddAnswerPage";
 import EditSingleAnswer from "./components/EditAnswerPage"
+import DeleteAnswer from "./components/DeleteAnswerPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -57,7 +58,8 @@ function App() {
           {session? <CreateSingleAnswer /> : null}
         </Route>
         <Route path="/answers/:answerId">
-          {session? <EditSingleAnswer /> : null}
+          {session ? <EditSingleAnswer /> : null}
+          {session ? <DeleteAnswer /> : null}
         </Route>
       </Switch>
       </div>

@@ -14,15 +14,11 @@ function DeleteSingleQuestion() {
     dispatch(removeAQuestion(questionId));
     history.push("/")
   }
-
-
   if (singleQuestion !== null || singleQuestion !== undefined) {
     return (
         <form onSubmit={handleDelete}>
           <button type="submit">Delete</button>
         </form>
-
-
   );
 
   }
