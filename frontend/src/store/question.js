@@ -80,7 +80,7 @@ export const removeAQuestion = (questionId) => async dispatch => {
   });
   if (response.ok) {
     const data = await response.json();
-    dispatch(removeQuestion(data.id)); // key name same as backend route json
+    dispatch(removeQuestion(data.questionId)); // key name same as backend route json
 
     return data;
   }
@@ -110,10 +110,6 @@ const questionReducer = (state = ininitalState, action) => {
       newState[newQuestion.id] = newQuestion;
       return newState;
     case (REMOVE_QUESTION):
-      newState = Object.assign({}, state);
-      // action.payload["remainingQuestions"].forEach((question) => {
-      //   newState[question.id] = question;
-      // })
       const newState1 = { ...state };
       delete newState1[action.questionId];
       return newState1;

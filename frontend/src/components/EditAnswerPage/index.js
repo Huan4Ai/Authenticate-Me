@@ -47,11 +47,6 @@ function EditSingleAnswer() {
     </div>
 
 
-
-
-
-
-
   )
 }
 
