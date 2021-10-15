@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import "./LoginForm.css"
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
+import SignUpFormModal from "../SignupFormPage";
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -80,7 +81,8 @@ function LoginForm() {
           </div>
           <button type="submit" className="login_button">Login</button>
         </form>
-      <NavLink to="/signup">Sign Up</NavLink>
+        {/* <NavLink to="/signup">Sign Up</NavLink> */}
+      <SignUpFormModal />
       <button onClick={demoButton}>Demo User</button>
       </div>
     </div>
