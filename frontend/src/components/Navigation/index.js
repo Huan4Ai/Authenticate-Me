@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
-import logo from '../../images/logo1.png';
+import logo from '../../images/apple-touch-icon.png';
 import CreateQuestionModal from '../CreateQuestionPage';
 
 
@@ -69,9 +69,6 @@ function Navigation({ isLoaded }){
         <div className="right_user">
         <ProfileButton user={sessionUser} />
         </div>
-        {/* <NavLink to="/questions">
-          <button className="right_btn">Add Question</button>
-        </NavLink> */}
         <CreateQuestionModal />
       </div>
 

@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import "./LoginForm.css"
-// import { NavLink } from "react-router-dom";
 import SignUpFormModal from "../SignupFormPage";
-
+import icon from "../../images/apple-touch-icon.png"
 function LoginForm() {
   const dispatch = useDispatch();
   const [credential, setCredential] = useState("");
@@ -33,7 +32,7 @@ function LoginForm() {
       <div className="title_form_container">
         <div className="title_description_container">
           <div className="doguora_title">
-            <h1>Doguora</h1>
+            <img src={icon} alt="Doguora Favicon" />
           </div>
           <div className="title_description">
             <p>A place to share knowledge and better understand dogs</p>

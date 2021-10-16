@@ -6,7 +6,6 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import ShowAllQuestions from "./components/QuestionsPage";
 import ShowOneQuestion from "./components/SingleQuestion";
-// import DeleteSingleQuestion from "./components/DeleteQuestion";
 import ShowAllAnswers from "./components/AnswersPage";
 import CreateSingleAnswer from "./components/AddAnswerPage";
 import EditSingleAnswer from "./components/EditAnswerPage"
@@ -41,7 +40,6 @@ function App() {
         </Route>
         <Route path='/questions/:questionId' exact>
           {session? <ShowOneQuestion /> : <LoginForm />}
-          {/* {session ? <DeleteSingleQuestion /> : null} */}
           {session ? <ShowAllAnswers /> : null}
         </Route>
         <Route path="/questions/:questionId/createAnswer">
