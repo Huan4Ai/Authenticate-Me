@@ -81,7 +81,7 @@ router.put('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
       description
     });
     res.json(question);
-    res.redirect('/questions/:id');
+    // res.redirect('/questions/:id');
   } else if (req.user.id !== question.ownerId) {
     next(new Error("You are not authorized to update that"));
   } else {

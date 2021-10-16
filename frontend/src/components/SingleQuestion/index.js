@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { getSingleQuestion } from "../../store/question";
 import { useParams } from "react-router";
+import EditQuestionModal from "../EditQuestionPage";
 
 function ShowOneQuestion() {
   const { questionId } = useParams(); // has to be exactly same as in the APP.js route
@@ -16,13 +17,16 @@ function ShowOneQuestion() {
 
 
   if (singleQuestion !== null || singleQuestion !== undefined) {
-      return (
-       <ul>
-          <li>
-            <div>{singleQuestion?.title}</div>
-            <div>{singleQuestion?.description}</div>
-          </li>
-        </ul>
+    return (
+        <div>
+          <ul>
+              <li>
+                <div>{singleQuestion?.title}</div>
+                <div>{singleQuestion?.description}</div>
+              </li>
+          </ul>
+          <EditQuestionModal />
+        </div>
 
   )
   }

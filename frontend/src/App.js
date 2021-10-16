@@ -7,7 +7,7 @@ import Navigation from "./components/Navigation";
 import ShowAllQuestions from "./components/QuestionsPage";
 import ShowOneQuestion from "./components/SingleQuestion";
 // import CreateSingleQuestion from "./components/CreateQuestionPage";
-import EditSingleQuestion from "./components/EditQuestionPage";
+// import EditSingleQuestion from "./components/EditQuestionPage";
 import DeleteSingleQuestion from "./components/DeleteQuestion";
 import ShowAllAnswers from "./components/AnswersPage";
 import CreateSingleAnswer from "./components/AddAnswerPage";
@@ -41,12 +41,9 @@ function App() {
         <Route path="/" exact>
           {session? <ShowAllQuestions /> : <LoginForm />}
         </Route>
-        {/* <Route path='/questions' exact>
-          {session? <CreateSingleQuestion /> : <LoginForm />}
-        </Route> */}
         <Route path='/questions/:questionId' exact>
           {session? <ShowOneQuestion /> : <LoginForm />}
-          {session? <EditSingleQuestion /> : null}
+          {/* {session? <EditSingleQuestion /> : null} */}
           {session ? <DeleteSingleQuestion /> : null}
           {session ? <ShowAllAnswers /> : null}
         </Route>
