@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
-import logo from '../../images/apple-touch-icon.png';
+import logo from '../../images/android-chrome-192x192.png';
 import CreateQuestionModal from '../CreateQuestionPage';
 
 
@@ -50,10 +50,10 @@ function Navigation({ isLoaded }){
       </div>
 
       <div className="left_icons">
-        <div className="left_home">
+        <div className="left_icon">
           <i className="fas fa-home" />
         </div>
-        <div className="left_answers">
+        <div className="left_icon">
           <i className="fas fa-pencil-alt" />
         </div>
       </div>
