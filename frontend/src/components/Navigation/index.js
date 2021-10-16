@@ -43,13 +43,13 @@ function Navigation({ isLoaded }){
 
     <div className="Header">
 
+      <div className="left_logo">
+        <NavLink to="/">
+          <img src={logo} alt="Company Logo" className="left_logoImage" />
+        </NavLink>
+      </div>
 
-      <div className="Header_left">
-        <div className="left_logo">
-          <NavLink to="/">
-            <img src={logo} alt="Company Logo" className="left_logoImage" />
-          </NavLink>
-        </div>
+      <div className="left_icons">
         <div className="left_home">
           <i className="fas fa-home" />
         </div>
@@ -58,17 +58,13 @@ function Navigation({ isLoaded }){
         </div>
       </div>
 
-      <div className="Header_center">
-        <div>
-          <input type="text" placeholder="Search" className="center_inputField" />
+      <div className="mid_search">
           <i className="fas fa-search" />
-        </div>
+          <input type="text" placeholder="Search" className="center_inputField" />
       </div>
 
-      <div className="Header_right">
-        <div className="right_user">
+      <div className="right_header">
         <ProfileButton user={sessionUser} />
-        </div>
         <CreateQuestionModal />
       </div>
 
