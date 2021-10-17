@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { useParams } from "react-router";
 import { getAnswers } from "../../store/answer";
 import { NavLink } from "react-router-dom";
+import AddAnswerModal from "../AddAnswerPage";
 function ShowAllAnswers() {
   const dispatch = useDispatch();
   const answers = useSelector(state => state.answer);
@@ -22,9 +23,10 @@ function ShowAllAnswers() {
           <NavLink to={`/answers/${answers[key].id}`}>Edit this answer</NavLink>
           </li>)}
       </ul>
-      <NavLink to={`/questions/${questionId}/createAnswer`}>
+      {/* <NavLink to={`/questions/${questionId}/createAnswer`}>
         Create An Answer
-      </NavLink>
+      </NavLink> */}
+      <AddAnswerModal />
     </div>
   );
 }

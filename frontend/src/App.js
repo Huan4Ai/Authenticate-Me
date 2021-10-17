@@ -7,7 +7,7 @@ import Navigation from "./components/Navigation";
 import ShowAllQuestions from "./components/QuestionsPage";
 import ShowOneQuestion from "./components/SingleQuestion";
 import ShowAllAnswers from "./components/AnswersPage";
-import CreateSingleAnswer from "./components/AddAnswerPage";
+// import CreateSingleAnswer from "./components/AddAnswerPage";
 import EditSingleAnswer from "./components/EditAnswerPage"
 import DeleteAnswer from "./components/DeleteAnswerPage";
 
@@ -42,9 +42,9 @@ function App() {
           {session? <ShowOneQuestion /> : <LoginForm />}
           {session ? <ShowAllAnswers /> : null}
         </Route>
-        <Route path="/questions/:questionId/createAnswer">
+        {/* <Route path="/questions/:questionId/createAnswer">
           {session? <CreateSingleAnswer /> : null}
-        </Route>
+        </Route> */}
         <Route path="/answers/:answerId">
           {session ? <EditSingleAnswer /> : null}
           {session ? <DeleteAnswer /> : null}

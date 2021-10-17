@@ -1,60 +1,19 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { useHistory } from "react-router";
-import { useParams } from "react-router";
-import { createAnswer } from "../../store/answer";
-
-const CreateSingleAnswer = () => {
-  const dispatch = useDispatch();
-  const history = useHistory();
-
-  const userId = useSelector((state) => state.session.user.id);
-  const questionId = useParams().questionId;
-  const [answer, setAnswer] = useState("");
-
-
-  const reset = () => {
-    setAnswer("");
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const data = {
-      userId,
-      questionId,
-      answer
-    };
-    let createdAnswer = await dispatch(createAnswer(data, questionId));
-    if (createdAnswer) {
-      history.push(`/questions/${questionId}`)
-      reset();
-    }
-
-
-  };
-
+import React, { useState } from 'react';
+import { Modal } from '../../context/Modal';
+import CreateSingleAnswer from './AddAnswerPage';
+function AddAnswerModal() {
+  const [showModal, setShowModal] = useState(false);
 
   return (
-    <div>
-      <h2>Create an answer</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor='answer'>Answer:</label>
-          <input id='answer' type='text' onChange={(e) => setAnswer(e.target.value)} value={answer} required />
-        </div>
-        <button type="submit">Submit</button>
-        <button type="button">Cancel</button>
-      </form>
-    </div>
-
-
+    <>
+      <button onClick={() => setShowModal(true)}>Create an answer</button>
+      {showModal && (
+        <Modal onClose={() => setShowModal(false)}>
+          <CreateSingleAnswer setShowModal={setShowModal} />
+        </Modal>
+      )}
+    </>
   );
+}
 
-  };
-
-
-
-
-
-export default CreateSingleAnswer
+export default AddAnswerModal;
