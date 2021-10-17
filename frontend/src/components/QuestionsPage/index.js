@@ -28,7 +28,7 @@ function ShowAllQuestions() {
 				{Object.keys(questions).map((question) => (
 					<Link key={questions[question].id} to={`/questions/${questions[question].id}`}>
 						<div className="questionsLinks">
-							<p> {questions[question].title} </p>
+							<p className="test"> {questions[question].title} </p>
 						</div>
 					</Link>
 				))}
