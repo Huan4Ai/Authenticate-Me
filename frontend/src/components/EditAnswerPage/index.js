@@ -32,6 +32,10 @@ function EditSingleAnswer() {
 
   };
 
+  const handleCancelClick = (e) => {
+    e.preventDefault();
+    history.push(`/questions/${questionId}`);
+  };
 
   return (
     <div>
@@ -42,7 +46,7 @@ function EditSingleAnswer() {
           <input id='answer' type='text' onChange={(e) => setAnswer(e.target.value)} value={answer} required />
         </div>
         <button type="submit">Submit</button>
-        <button type="button">Cancel</button>
+        <button type="button" onClick={handleCancelClick}>Cancel</button>
       </form>
     </div>
 
