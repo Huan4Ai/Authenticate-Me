@@ -30,14 +30,12 @@ function LoginForm() {
   return (
     <div className="login_container">
       <div className="title_form_container">
-        <div className="title_description_container">
           <div className="doguora_title">
             <img src={icon} alt="Doguora Favicon" />
           </div>
           <div className="title_description">
             <p>A place to share knowledge and better understand dogs</p>
           </div>
-        </div>
         <form onSubmit={handleSubmit} className="login_form">
           <div className="login_errors">
             <ul>
@@ -46,13 +44,13 @@ function LoginForm() {
               ))}
             </ul>
           </div>
-          <div className="username">
-            <div className="username_label">
+          <div>
+            <div>
             <label>
               Username or Email
             </label>
             </div>
-            <div className="username_input">
+            <div>
               <input
                 type="text"
                 value={credential}
@@ -62,13 +60,13 @@ function LoginForm() {
               />
             </div>
           </div>
-          <div className="password">
-            <div className="password_label">
+          <div>
+            <div>
               <label>
                 Password
               </label>
             </div>
-            <div className="password_input">
+            <div>
               <input
                 type="password"
                 value={password}

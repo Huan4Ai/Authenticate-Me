@@ -4,10 +4,6 @@
   color: lightslategray;
 }
 
-.doguora_title {
-  font-family: 'Montserrat', sans-serif;
-  color: rgb(185, 43, 39);
-}
 
 .login_container {
   display: flex;
@@ -40,3 +36,9 @@ input {
   border-radius: 10px;
   padding: 0px 20px;
 }
+
+.title_form_container {
+  background-color: white;
+}
+
+
