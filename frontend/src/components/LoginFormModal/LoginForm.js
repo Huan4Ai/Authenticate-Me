@@ -80,7 +80,6 @@ function LoginForm() {
           </div>
           <button type="submit" className="login_button">Login</button>
         </form>
-        {/* <NavLink to="/signup">Sign Up</NavLink> */}
       <SignUpFormModal />
       <button onClick={demoButton}>Demo User</button>
       </div>
