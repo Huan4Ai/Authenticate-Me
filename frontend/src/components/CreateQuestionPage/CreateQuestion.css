@@ -1,0 +1,12 @@
+.addQuestionButton {
+  margin-left: 30px;
+  color: white;
+  background: #b92b27;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  height: 30px;
+  min-width: 30px;
+  border-width: 0px;
+  border-radius: 10px;
+  padding: 0px 20px;
+}
