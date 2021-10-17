@@ -36,6 +36,8 @@ const  CreateSingleQuestion = ({ setShowModal }) => {
 
   const handleCancelClick = (e) => {
     e.preventDefault();
+    setShowModal(false);
+    history.push(`/`);
   };
 
   return (
