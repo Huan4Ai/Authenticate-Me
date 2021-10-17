@@ -26,13 +26,13 @@ function EditSingleQuestion({ setShowModal }) {
     if (editedQuestion) {
       setShowModal(false);
       history.push(`/questions/${questionId}`);
-      // hideForm();
     }
   };
 
   const handleCancelClick = (e) => {
     e.preventDefault();
-    // hideForm();
+    setShowModal(false);
+    history.push(`/questions/${questionId}`);
   };
 
   if (singleQuestion !== null || singleQuestion !== undefined) {
