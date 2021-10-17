@@ -39,6 +39,10 @@ input {
 
 .title_form_container {
   background-color: white;
+  height: 70vh;
 }
 
-
+.login_container{
+  height: 100vh;
+  background: url("http://qsfs.fs.quoracdn.net/-4-images.home.illo_1920.png-26-e9e6fbe02d908942.png");
+}
