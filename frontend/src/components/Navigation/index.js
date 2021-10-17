@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
-import logo from '../../images/android-chrome-192x192.png';
+import logo from '../../images/customLogo2.jpg';
 import CreateQuestionModal from '../CreateQuestionPage';
 
 
