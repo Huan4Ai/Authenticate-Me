@@ -38,15 +38,19 @@ function EditSingleAnswer() {
   };
 
   return (
-    <div>
-      <h2>Edit an answer</h2>
+    <div className="editAnswerContainer">
+      <h3>Edit an answer</h3>
       <form onSubmit={handleEdit}>
         <div>
           <label htmlFor='answer'>Answer:</label>
+        </div>
+        <div>
           <input id='answer' type='text' onChange={(e) => setAnswer(e.target.value)} value={answer} required />
         </div>
-        <button type="submit">Submit</button>
-        <button type="button" onClick={handleCancelClick}>Cancel</button>
+        <div>
+        <button type="submit" className="submitButton">Submit</button>
+        <button type="button" onClick={handleCancelClick} className="cancelButton">Cancel</button>
+        </div>
       </form>
     </div>
 

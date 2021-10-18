@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { deleteAnswer } from "../../store/answer";
 import { useHistory } from "react-router";
+import "./DeleteAnswer.css"
 
 function DeleteAnswer() {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ function DeleteAnswer() {
   if (singleAnswer !== null || singleAnswer !== undefined) {
     return (
         <form onSubmit={handleDelete}>
-          <button type="submit">Delete</button>
+          <button type="submit" className="deleteButtonOnAnswer">Delete</button>
         </form>
   );
 
