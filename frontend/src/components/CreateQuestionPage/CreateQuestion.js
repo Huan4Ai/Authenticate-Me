@@ -42,19 +42,27 @@ const  CreateSingleQuestion = ({ setShowModal }) => {
 
   return (
     <div>
-      <h2>Create a question about dogs</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor='title'>Title:</label>
-          <input id='title' type='text' onChange={(e) => setTitle(e.target.value)} value={title} required />
-        </div>
-        <div>
-          <label htmlFor='description'>Description:</label>
-          <textarea id='description' type='text' onChange={(e) => setDescription(e.target.value)} value={description} required/>
-        </div>
-        <button type="submit">Submit</button>
-        <button type="button" onClick={handleCancelClick}>Cancel</button>
-      </form>
+      <h4>Create a question about dogs</h4>
+      <div className="createQuestionContainer">
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor='title'>Title:</label>
+          </div>
+          <div>
+            <input id='title' type='text' onChange={(e) => setTitle(e.target.value)} value={title} required className="inputField"/>
+          </div>
+          <div>
+            <label htmlFor='description'>Description:</label>
+          </div>
+          <div>
+            <textarea id='description' type='text' onChange={(e) => setDescription(e.target.value)} value={description} className="inputField" required/>
+          </div>
+          <div>
+            <button type="submit" className="submitButton">Submit</button>
+            <button type="button" onClick={handleCancelClick}>Cancel</button>
+          </div>
+        </form>
+      </div>
     </div>
 
   );
