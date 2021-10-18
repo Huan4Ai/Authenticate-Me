@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { removeAQuestion } from "../../store/question";
 import { useHistory } from "react-router-dom";
+import "./DeleteQuestion.css"
 
 function DeleteSingleQuestion({ setShowModal }) {
   const dispatch = useDispatch();

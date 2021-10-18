@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { editAQuestion } from "../../store/question";
-
+import "./EditQuestionPage.css"
 function EditSingleQuestion({ setShowModal }) {
   const dispatch = useDispatch();
   const { questionId } = useParams();

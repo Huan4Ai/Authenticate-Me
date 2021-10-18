@@ -6,6 +6,8 @@ import { getSingleQuestion } from "../../store/question";
 import { useParams } from "react-router";
 import EditQuestionModal from "../EditQuestionPage";
 import DeleteQuestionModal from "../DeleteQuestion";
+import AddAnswerModal from "../AddAnswerPage";
+import "./SingleQuestion.css"
 
 function ShowOneQuestion() {
   const { questionId } = useParams(); // has to be exactly same as in the APP.js route
@@ -19,17 +21,21 @@ function ShowOneQuestion() {
 
   if (singleQuestion !== null || singleQuestion !== undefined) {
     return (
+      <div className="singleQuestionContainer">
+        <div className="questionTitle">
+          {singleQuestion?.title}
+        </div>
         <div>
-          <ul>
-              <li>
-                <div>{singleQuestion?.title}</div>
-                <div>{singleQuestion?.description}</div>
-              </li>
-          </ul>
+          {singleQuestion?.description}
+        </div>
+        <div>
+          <AddAnswerModal />
+        </div>
+        <div className="editAndDelete">
         <EditQuestionModal />
         <DeleteQuestionModal />
         </div>
-
+      </div>
   )
   }
 
