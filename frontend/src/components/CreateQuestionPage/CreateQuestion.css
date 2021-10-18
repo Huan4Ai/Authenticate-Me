@@ -44,3 +44,23 @@ h4 {
   padding: 0px 10px;
   margin-right: 10px;
 }
+
+.cancelButton {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
+.cancelButton:hover {
+  background-color: lightgray;
+  border-radius: 10px;
+  transition-duration: 0.4s;
+  height: 30px;
+  min-width: 30px;
+  position: relative;
+  border-width: 0px;
+  padding: 0px 10px;
+}

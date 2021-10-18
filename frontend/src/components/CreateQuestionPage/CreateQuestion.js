@@ -59,7 +59,7 @@ const  CreateSingleQuestion = ({ setShowModal }) => {
           </div>
           <div>
             <button type="submit" className="submitButton">Submit</button>
-            <button type="button" onClick={handleCancelClick}>Cancel</button>
+            <button type="button" onClick={handleCancelClick} className="cancelButton">Cancel</button>
           </div>
         </form>
       </div>
