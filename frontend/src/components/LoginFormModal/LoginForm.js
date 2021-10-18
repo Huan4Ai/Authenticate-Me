@@ -76,10 +76,12 @@ function LoginForm() {
               />
             </div>
           </div>
-          <button type="submit" className="login_button">Login</button>
+          <div className="loginButtons">
+            <SignUpFormModal />
+            <button type="submit" className="login_button">Login</button>
+            <button onClick={demoButton}>Demo User</button>
+          </div>
         </form>
-      <SignUpFormModal />
-      <button onClick={demoButton}>Demo User</button>
       </div>
     </div>
   );
