@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { useParams } from "react-router";
 import { getAnswers } from "../../store/answer";
 import { NavLink } from "react-router-dom";
+import "./Answers.css"
 function ShowAllAnswers() {
   const dispatch = useDispatch();
   const answers = useSelector(state => state.answer);
@@ -17,9 +18,15 @@ function ShowAllAnswers() {
   return (
     <div>
       <ul>{Object.keys(answers).map(key =>
-          <li key={answers[key].id}>
-          <div>{answers[key].answer}</div>
-          <NavLink to={`/answers/${answers[key].id}`}>Edit this answer</NavLink>
+        <li key={answers[key].id}>
+          <div className="eachAnswer">
+            <div>
+              {answers[key].answer}
+            </div>
+            <div>
+            <NavLink to={`/answers/${answers[key].id}`}>Edit this answer</NavLink>
+            </div>
+          </div>
           </li>)}
       </ul>
 
