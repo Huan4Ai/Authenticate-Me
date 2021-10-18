@@ -10,3 +10,10 @@
   padding: 0px 20px;
   /* margin-right: 10px; */
 }
+
+.editQuestionContainer {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
