@@ -25,6 +25,7 @@
 input {
   height: 21px;
   width: 284px;
+  margin: 10px;
 }
 
 .login_button {
