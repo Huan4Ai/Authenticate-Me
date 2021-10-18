@@ -25,10 +25,8 @@ function ShowOneQuestion() {
         <div className="questionTitle">
           {singleQuestion?.title}
         </div>
-        <div>
-          {singleQuestion?.description}
-        </div>
-        <div>
+        <div className="answerButton">
+          <i className="fas fa-pencil-alt" />
           <AddAnswerModal />
         </div>
         <div className="editAndDelete">

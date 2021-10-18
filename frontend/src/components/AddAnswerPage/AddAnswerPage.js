@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { useParams } from "react-router";
 import { createAnswer } from "../../store/answer";
+import "./AddAnswers.css"
 
 const CreateSingleAnswer = ({ setShowModal }) => {
   const dispatch = useDispatch();

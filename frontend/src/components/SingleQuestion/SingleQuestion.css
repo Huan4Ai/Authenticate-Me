@@ -1,9 +1,24 @@
+.questionTitle {
+  font-weight: bold;
+}
 
+.singleQuestionContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 15vh;
+}
 
+.answerButton {
+  color: grey;
+  cursor: pointer;
+  font-size: large;
+  padding: 5px 5px;
+}
 
-
-
-
+body {
+  background-color: white;
+}
 
 
 
