@@ -79,10 +79,14 @@ function LoginForm() {
           <div className="loginButtons">
             <SignUpFormModal />
             <button type="submit" className="login_button">Login</button>
-            <button onClick={demoButton}>Demo User</button>
+            <button onClick={demoButton} className="demo_user">Demo User</button>
+          </div>
+          <div>
+            <a href="https://github.com/Huan4Ai/Doguora" className="footer">About</a>
           </div>
         </form>
       </div>
+
     </div>
   );
 }

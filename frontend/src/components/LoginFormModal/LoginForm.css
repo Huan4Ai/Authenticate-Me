@@ -54,3 +54,30 @@ input {
   display: flex;
   justify-content: space-between;
 }
+
+.demo_user {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
+.demo_user:hover {
+  background-color: lightgray;
+  border-radius: 10px;
+  transition-duration: 0.4s;
+  height: 30px;
+  min-width: 30px;
+  position: relative;
+  border-width: 0px;
+  /* padding: 0px 10px; */
+}
+
+.footer {
+  padding-top: 10px;
+  display: flex;
+  /* align-items: center;
+  justify-content: space-evenly; */
+}
