@@ -17,18 +17,19 @@ function ShowAllAnswers() {
 
   return (
     <div>
-      <ul>{Object.keys(answers).map(key =>
-        <li key={answers[key].id}>
-          <div className="eachAnswer">
-            <div>
-              {answers[key].answer}
-            </div>
-            <div>
-            <NavLink to={`/answers/${answers[key].id}`}>Edit this answer</NavLink>
-            </div>
+      {Object.keys(answers).map(key =>
+        // <li key={answers[key].id}>
+        <div className="eachAnswer">
+          <div>
+            {answers[key].answer}
           </div>
-          </li>)}
-      </ul>
+          <div>
+            <NavLink to={`/answers/${answers[key].id}`}>Edit this answer</NavLink>
+          </div>
+        </div>
+        // </li>)}
+      )}
+
 
     </div>
   );
