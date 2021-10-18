@@ -17,3 +17,24 @@
   border-width: 0px;
   padding: 0px 10px;
 }
+
+.deleteQuestionContainer {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+.deleteButton {
+  background-color: red;
+  transition-duration: 0.4s;
+  height: 30px;
+  min-width: 30px;
+  position: relative;
+  border-width: 0px;
+  color: white;
+  border-radius: 10px;
+  padding: 0px 20px;
+  /* margin-right: 10px; */
+}
