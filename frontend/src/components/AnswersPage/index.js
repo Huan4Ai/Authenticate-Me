@@ -19,7 +19,7 @@ function ShowAllAnswers() {
     <div>
       {Object.keys(answers).map(key =>
         // <li key={answers[key].id}>
-        <div className="eachAnswer">
+        <div className="eachAnswer" key={answers[key].id}>
           <div>
             {answers[key].answer}
           </div>
