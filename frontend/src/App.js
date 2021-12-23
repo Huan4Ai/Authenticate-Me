@@ -9,6 +9,7 @@ import ShowOneQuestion from "./components/SingleQuestion";
 import ShowAllAnswers from "./components/AnswersPage";
 import EditSingleAnswer from "./components/EditAnswerPage"
 import DeleteAnswer from "./components/DeleteAnswerPage";
+import SplashLanding from "./components/SplashLogin/HomePage";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,7 +33,7 @@ function App() {
     <>
       {isLoaded && (
       <div>
-      {session && <Navigation isLoaded={isLoaded} />}
+      {/* {session && <Navigation isLoaded={isLoaded} />} */}
       <Switch>
         <Route path="/" exact>
           {session? <ShowAllQuestions /> : <LoginForm />}
@@ -44,6 +45,9 @@ function App() {
         <Route path="/answers/:answerId">
           {session ? <EditSingleAnswer /> : null}
           {session ? <DeleteAnswer /> : null}
+        </Route>
+        <Route path="/test">
+          <SplashLanding />
         </Route>
       </Switch>
       </div>
