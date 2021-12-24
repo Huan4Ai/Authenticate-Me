@@ -57,33 +57,37 @@
 
 .loginButtons {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   width: 100%;
+  margin-bottom: 20px;
 }
 
-.login_button {
+.login_demo_button {
   background-color: #2e69ff;
-  transition-duration: 0.4s;
-  height: 30px;
   min-width: 30px;
-  position: relative;
-  border-width: 0px;
+  border: none;
   color: white;
-  border-radius: 10px;
-  padding: 0px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  height: 2.2rem;
+  width: 7.2rem;
 }
 
+#demo_button {
+  margin-left: 20px;
+}
 
-.demo_user {
+/* .demo_user {
   background-color: transparent;
   background-repeat: no-repeat;
   border: none;
   cursor: pointer;
   overflow: hidden;
   outline: none;
-}
+} */
 
-.demo_user:hover {
+/* .demo_user:hover {
   background-color: lightgray;
   border-radius: 10px;
   transition-duration: 0.4s;
@@ -91,5 +95,4 @@
   min-width: 30px;
   position: relative;
   border-width: 0px;
-  /* padding: 0px 10px; */
-}
+} */

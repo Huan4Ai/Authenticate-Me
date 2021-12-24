@@ -47,19 +47,21 @@ function LoginForm() {
           </div>
           <label className="loginField">Email</label>
           <div>
-            <input className="loginField" id="login_Email" type="text" value={credential} onChange={(e) => setCredential(e.target.value)} placeholder="Your Email" required />
+            <input className="loginField" id="login_Email" type="text" value={credential} onChange={(e) => setCredential(e.target.value)} placeholder="Your Email" />
           </div>
           <label className="loginField">Password</label>
           <div>
-            <input className="loginField" id="login_Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Your Password" required />
+            <input className="loginField" id="login_Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Your Password" />
           </div>
         </form>
 
         <div className="loginButtons">
-          <SignUpFormModal />
-          <button type="submit" className="login_button" onClick={handleSubmit}>Login</button>
-          <button onClick={demoButton} className="demo_user">Demo User</button>
+          <button type="submit" className="login_demo_button" onClick={handleSubmit}>Login</button>
+          <button onClick={demoButton} className="login_demo_button" id="demo_button">Demo User</button>
         </div>
+
+        <SignUpFormModal />
+
 
       </div>
 

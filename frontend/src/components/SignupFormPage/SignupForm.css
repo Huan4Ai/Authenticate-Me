@@ -31,14 +31,14 @@
 
 .signUpButtonOnLogin {
   background-color: transparent;
-  background-repeat: no-repeat;
   border: none;
   cursor: pointer;
   overflow: hidden;
   outline: none;
+  margin-bottom: 20px;
 }
 
-.signUpButtonOnLogin:hover {
+/* .signUpButtonOnLogin:hover {
   background-color: lightgray;
   border-radius: 10px;
   transition-duration: 0.4s;
@@ -46,5 +46,4 @@
   min-width: 30px;
   position: relative;
   border-width: 0px;
-  /* padding: 0px 10px; */
-}
+} */
