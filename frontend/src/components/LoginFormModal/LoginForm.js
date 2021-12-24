@@ -3,7 +3,8 @@ import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import "./LoginForm.css"
 import SignUpFormModal from "../SignupFormPage";
-import icon from "../../images/apple-touch-icon.png"
+import dog_people1 from "../../images/dog_people1.jpg"
+
 function LoginForm() {
   const dispatch = useDispatch();
   const [credential, setCredential] = useState("");
@@ -28,7 +29,13 @@ function LoginForm() {
   }
 
   return (
-    <div className="login_container">
+    <div className="page_container">
+      <div className="login_container">
+
+        <div className="top_login">
+          <p id="logo">Doguora</p>
+          <p id="description">A place to discuss everything about dogs!</p>
+        </div>
 
         <form onSubmit={handleSubmit} className="login_form">
           <div className="login_errors">
@@ -38,44 +45,23 @@ function LoginForm() {
               ))}
             </ul>
           </div>
+          <label className="loginField">Email</label>
           <div>
-            <div>
-            <label>
-              Username or Email
-            </label>
-            </div>
-            <div>
-              <input
-                type="text"
-                value={credential}
-                onChange={(e) => setCredential(e.target.value)}
-                placeholder="Your username or email"
-                required
-              />
-            </div>
+            <input className="loginField" id="login_Email" type="text" value={credential} onChange={(e) => setCredential(e.target.value)} placeholder="Your Email" required />
           </div>
+          <label className="loginField">Password</label>
           <div>
-            <div>
-              <label>
-                Password
-              </label>
-            </div>
-            <div>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Your password"
-                required
-              />
-            </div>
-          </div>
-          <div className="loginButtons">
-            <SignUpFormModal />
-            <button type="submit" className="login_button">Login</button>
-            <button onClick={demoButton} className="demo_user">Demo User</button>
+            <input className="loginField" id="login_Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Your Password" required />
           </div>
         </form>
+
+        <div className="loginButtons">
+          <SignUpFormModal />
+          <button type="submit" className="login_button" onClick={handleSubmit}>Login</button>
+          <button onClick={demoButton} className="demo_user">Demo User</button>
+        </div>
+
+      </div>
 
     </div>
   );
