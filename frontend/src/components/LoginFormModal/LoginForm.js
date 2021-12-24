@@ -29,13 +29,7 @@ function LoginForm() {
 
   return (
     <div className="login_container">
-      <div className="title_form_container">
-          <div className="doguora_title">
-            <img src={icon} alt="Doguora Favicon" />
-          </div>
-          <div className="title_description">
-            <p>A place to share knowledge and better understand dogs</p>
-          </div>
+
         <form onSubmit={handleSubmit} className="login_form">
           <div className="login_errors">
             <ul>
@@ -81,11 +75,7 @@ function LoginForm() {
             <button type="submit" className="login_button">Login</button>
             <button onClick={demoButton} className="demo_user">Demo User</button>
           </div>
-          <div>
-            <a href="https://github.com/Huan4Ai/Doguora" className="footer">About</a>
-          </div>
         </form>
-      </div>
 
     </div>
   );
