@@ -90,15 +90,23 @@
   box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.5);
 }
 
-.left_logoImage{
+/* .left_logoImage{
   width: 70px;
   margin-right: 20px;
+} */
+
+#logoOnNav {
+    color: #b92b27;
+    font-size: 26pt;
+    font-weight: bolder;
+    margin: 0;
+    text-decoration: none;
 }
 
-.left_icons {
+/* .left_icons {
   display: flex;
   margin-right: 20px;
-}
+} */
 
 .left_icons > .left_icon {
   color: grey;

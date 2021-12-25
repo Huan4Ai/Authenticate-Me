@@ -7,7 +7,7 @@ import logo from '../../images/customLogo2.jpg';
 import CreateQuestionModal from '../CreateQuestionPage';
 
 
-function Navigation({ isLoaded }){
+function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
 
 
@@ -43,30 +43,31 @@ function Navigation({ isLoaded }){
 
     <div className="Header">
 
-      <div className="left_logo">
+      {/* <div className="left_logo">
         <NavLink to="/">
           <img src={logo} alt="Company Logo" className="left_logoImage" />
         </NavLink>
-      </div>
+      </div> */}
+      <a id="logoOnNav" href='/'>Doguora</a>
 
-      <div className="left_icons">
-        <div className="left_icon">
-          <i className="fas fa-home" />
-        </div>
-        <div className="left_icon">
-          <i className="fas fa-pencil-alt" />
-        </div>
+      {/* <div className="left_icons"> */}
+      <div className="left_icon">
+        <i className="fas fa-home" />
       </div>
+      <div className="left_icon">
+        <i className="fas fa-pencil-alt" />
+      </div>
+      {/* </div> */}
 
       <div className="mid_search">
-          <i className="fas fa-search" />
-          <input type="text" placeholder="Search" className="center_inputField" />
+        <i className="fas fa-search" />
+        <input type="text" placeholder="Search" className="center_inputField" />
       </div>
 
-      <div className="right_header">
-        <ProfileButton user={sessionUser} />
-        <CreateQuestionModal />
-      </div>
+      {/* <div className="right_header"> */}
+      <ProfileButton user={sessionUser} />
+      <CreateQuestionModal />
+      {/* </div> */}
 
     </div>
   );
