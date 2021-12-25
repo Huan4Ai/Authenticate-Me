@@ -5,7 +5,7 @@
   flex-direction: column;
   height: 100vh;
   /* background: url("http://qsfs.fs.quoracdn.net/-4-images.home.illo_1920.png-26-e9e6fbe02d908942.png"); */
-  background-image: url("https://dogram.s3.us-east-2.amazonaws.com/wechat_paid_doguora.jpg");
+  background-image: url("https://dogram.s3.us-east-2.amazonaws.com/cartoon_1920x1080.jpg");
   background-position: center center;
   background-size: cover;
 }
@@ -13,7 +13,7 @@
 .login_container {
   display: flex;
   flex-direction: column;
-  width: 51%;
+  width: 40%;
   background-color: snow;
 }
 
@@ -71,7 +71,7 @@
   cursor: pointer;
   font-weight: 600;
   height: 2.2rem;
-  width: 7.2rem;
+  width: 7rem;
 }
 
 #demo_button {
