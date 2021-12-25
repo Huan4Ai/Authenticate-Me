@@ -1,15 +1,24 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import logo from '../../images/customLogo2.jpg';
 import CreateQuestionModal from '../CreateQuestionPage';
+import * as sessionActions from '../../store/session';
+
 
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
 
+  const dispatch = useDispatch();
+
+  const logout = (e) => {
+    e.preventDefault();
+    dispatch(sessionActions.logout());
+  };
 
   return (
     // <div className="nav-container">
@@ -51,12 +60,12 @@ function Navigation({ isLoaded }) {
       <a id="logoOnNav" href='/'>Doguora</a>
 
       {/* <div className="left_icons"> */}
-      <div className="left_icon">
+      <a className="left_icon" href='/'>
         <i className="fas fa-home" />
-      </div>
-      <div className="left_icon">
+      </a>
+      <a className="left_icon" href='/'>
         <i className="fas fa-pencil-alt" />
-      </div>
+      </a>
       {/* </div> */}
 
       <div className="mid_search">
@@ -65,9 +74,10 @@ function Navigation({ isLoaded }) {
       </div>
 
       {/* <div className="right_header"> */}
-      <ProfileButton user={sessionUser} />
+      {/* <ProfileButton user={sessionUser} /> */}
       <CreateQuestionModal />
       {/* </div> */}
+      <button onClick={logout} id="logOut">Logout</button>
 
     </div>
   );

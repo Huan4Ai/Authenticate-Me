@@ -4,10 +4,11 @@
   background: #b92b27;
   cursor: pointer;
   transition-duration: 0.4s;
+  font-weight: 600;
   height: 30px;
   min-width: 30px;
   border-width: 0px;
-  border-radius: 10px;
+  border-radius: 20px;
   padding: 0px 20px;
 }
 
