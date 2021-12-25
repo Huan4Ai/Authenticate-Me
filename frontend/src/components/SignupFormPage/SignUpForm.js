@@ -34,24 +34,11 @@ function SignupFormPage() {
         <ul>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
+        <label>Email</label>
         <div>
-          <label>
-            Email
-          </label>
+          <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} className="inputField" />
         </div>
-        <div>
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="inputField"
-          />
-        </div>
-        <div>
-          <label>
-            Username
-          </label>
-        </div>
+        <label>Username</label>
         <div>
           <input
             type="text"
