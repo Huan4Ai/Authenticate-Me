@@ -8,7 +8,9 @@ import "./QuestionsPage.css"
 
 function ShowAllQuestions() {
   const dispatch = useDispatch();
-  const questions = useSelector(state => state.question);
+  const questions = useSelector(state => state?.question);
+  const username = useSelector(state => state?.session?.user?.username)
+
 
   useEffect(() => {
     dispatch(getQuestion())
@@ -24,15 +26,21 @@ function ShowAllQuestions() {
     // </ul>
 
 
-    	<div className="questionsContainer">
-				{Object.keys(questions).map((question) => (
-					<Link key={questions[question].id} to={`/questions/${questions[question].id}`}>
-						<div className="questionsLinks">
-							<p className="test"> {questions[question].title} </p>
-						</div>
-					</Link>
-				))}
-			</div>
+    <div className="questionsContainer">
+
+      <div className="askQuestionBox">
+        <p id="askQuestionUsername">{username}</p>
+        <p id="askQuestionPrompt">What is your question?</p>
+      </div>
+
+      {Object.keys(questions).map((question) => (
+        <Link key={questions[question].id} to={`/questions/${questions[question].id}`}>
+          <div className="questionsLinks">
+            <p className="test"> {questions[question].title} </p>
+          </div>
+        </Link>
+      ))}
+    </div>
   );
 
   // return null;

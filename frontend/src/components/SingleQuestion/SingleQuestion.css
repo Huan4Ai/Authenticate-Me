@@ -16,13 +16,6 @@
   padding: 5px 5px;
 }
 
-body {
-  background-color: white;
-}
-
-
-
-
 .editAndDelete {
   display: flex;
   justify-content: flex-end;
