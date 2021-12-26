@@ -32,7 +32,7 @@ const CreateSingleQuestion = ({ setShowModal }) => {
       setShowModal(false);
       history.push(`/questions/${createdQuestion.id}`);
     }
-    reset();
+
   };
 
   const handleCancelClick = (e) => {
