@@ -40,38 +40,17 @@ function SignupFormPage() {
         </div>
         <label>Username</label>
         <div>
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            className="inputField"
-          />
+          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} className="inputField" />
         </div>
+        <label>Password</label>
         <div>
-          <label>
-            Password
-          </label>
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="inputField" />
         </div>
+        <label>
+          Confirm Password
+        </label>
         <div>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="inputField"
-          />
-        </div>
-        <div>
-          <label>
-            Confirm Password
-          </label>
-        </div>
-        <div>
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            className="inputField"
-          />
+          <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} className="inputField" />
         </div>
         <div>
           <button type="submit" className="signUpButton">Sign Up</button>
