@@ -1,17 +1,24 @@
-
+/*
 .signUpContainer {
-  padding: 20px;
+  width: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* margin: 20px; */
+} */
+
+.signup_Form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 0 20px 20px 20px;
+  background-color: snow;
 }
 
-.inputField {
-  margin: 10px;
+.signupElement {
+  margin-bottom: 5%;
 }
 
-.inputField:hover {
+.signupField:hover {
   border: blue;
   border-style: solid;
   border-radius: 1px;
