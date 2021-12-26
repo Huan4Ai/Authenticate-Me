@@ -5,11 +5,12 @@ import { useHistory } from "react-router";
 import { createAQuestion } from "../../store/question";
 
 
-const  CreateSingleQuestion = ({ setShowModal }) => {
+const CreateSingleQuestion = ({ setShowModal }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const ownerId = useSelector((state) => state.session.user.id)
+  const ownerId = useSelector((state) => state?.session?.user?.id);
+  const username = useSelector(state => state?.session?.user?.username);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
@@ -31,7 +32,7 @@ const  CreateSingleQuestion = ({ setShowModal }) => {
       setShowModal(false);
       history.push(`/questions/${createdQuestion.id}`);
     }
-    reset();
+
   };
 
   const handleCancelClick = (e) => {
@@ -41,29 +42,16 @@ const  CreateSingleQuestion = ({ setShowModal }) => {
   };
 
   return (
-    <div>
-      <h4>Create a question about dogs</h4>
-      <div className="createQuestionContainer">
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor='title'>Title:</label>
-          </div>
-          <div>
-            <input id='title' type='text' onChange={(e) => setTitle(e.target.value)} value={title} required className="inputField"/>
-          </div>
-          <div>
-            <label htmlFor='description'>Description:</label>
-          </div>
-          <div>
-            <textarea id='description' type='text' onChange={(e) => setDescription(e.target.value)} value={description} className="inputField" required/>
-          </div>
-          <div>
-            <button type="submit" className="submitButton">Submit</button>
-            <button type="button" onClick={handleCancelClick} className="cancelButton">Cancel</button>
-          </div>
-        </form>
+    <form className="createQuestionContainer" onSubmit={handleSubmit}>
+      <p id="usernameTitle">{username}</p>
+      <div>
+        <input id='title' placeholder={`Start your question with "What", "How", "Why", etc.`} type='text' onChange={(e) => setTitle(e.target.value)} value={title} className="createQuestionInput" />
       </div>
-    </div>
+      <div className="addQuestionButtons">
+        <button type="button" onClick={handleCancelClick} id="cancelButtonModal">Cancel</button>
+        <button type="submit" id="submitButtonModal">Submit</button>
+      </div>
+    </form>
 
   );
 

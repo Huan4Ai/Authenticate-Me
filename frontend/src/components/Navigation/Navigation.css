@@ -79,9 +79,9 @@
 
 .Header {
   display: flex;
-  justify-content:center;
+  justify-content:space-around;
   align-items: center;
-  padding: 1px;
+  padding: 10px;
   background-color: white;
   width: 100%;
 
@@ -90,24 +90,32 @@
   box-shadow: 0px 5px 8px -9px rgba(0, 0, 0, 0.5);
 }
 
-.left_logoImage{
+/* .left_logoImage{
   width: 70px;
   margin-right: 20px;
+} */
+
+#logoOnNav {
+    color: #b92b27;
+    font-size: 26pt;
+    font-weight: bolder;
+    margin: 0;
+    text-decoration: none;
 }
 
-.left_icons {
+/* .left_icons {
   display: flex;
   margin-right: 20px;
-}
+} */
 
-.left_icons > .left_icon {
+.left_icon {
   color: grey;
   cursor: pointer;
-  font-size: large;
+  font-size: 20px;
   padding: 5px 20px;
 }
 
-.left_icons > .left_icon:hover {
+.left_icon:hover {
   color: #8f1f1b;
   border-radius: 10px;
   background-color: lightgray;
@@ -125,6 +133,8 @@
   border: none;
   outline: none;
   background-color: transparent;
+  width: 100%;
+  /* height: 45px; */
 }
 
 .right_header{
@@ -133,8 +143,22 @@
   margin-left: 25px;
 }
 
-.profileButton{
+/* .profileButton{
   color: grey;
   cursor: pointer;
   font-size: large;
+} */
+
+#logOut {
+  color: #b92b27;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: 2px solid #b92b27;
+  border-radius: 7px;
+  cursor: pointer;
+  min-width: 3.5rem;
+  min-height: 1.8rem;
+
+  /* overflow: hidden;
+  outline: none; */
 }
