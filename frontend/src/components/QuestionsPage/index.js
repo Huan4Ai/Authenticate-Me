@@ -41,15 +41,16 @@ function ShowAllQuestions() {
         // </Link>
         <div key={questions[question].id} className="singleQuestion">
           <Link to={`/questions/${questions[question].id}`} className="questionsLinks">
-            <span> {questions[question].title} </span>
+            <span> {questions[question]?.title} </span>
           </Link>
+          <p>{questions[question]?.Answers[0]?.answer}</p>
         </div>
       ))}
     </div>
   );
 
   // return null;
-
+  // questions[question].Answers[0].answer
 
 
 
