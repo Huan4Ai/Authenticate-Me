@@ -117,7 +117,13 @@ router.delete('/:id(\\d+)', requireAuth, asyncHandler(async(req, res, next) => {
 router.get('/:id(\\d+)/answers', asyncHandler(async (req, res, next) => {
   const allAnswers = await Answer.findAll({
     // include: Question,
-    where: { questionId: req.params.id }
+    where: { questionId: req.params.id },
+
+    include: [
+      {
+        model: User
+      }
+    ]
   });
 
   return res.json(

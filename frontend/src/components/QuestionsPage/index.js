@@ -26,7 +26,7 @@ function ShowAllQuestions() {
     // </ul>
 
 
-    <div className="questionsContainer">
+    <div className="QuestionsPageContainer">
 
       <div className="askQuestionBox">
         <p id="askQuestionUsername">{username}</p>
@@ -34,11 +34,16 @@ function ShowAllQuestions() {
       </div>
 
       {Object.keys(questions).map((question) => (
-        <Link key={questions[question].id} to={`/questions/${questions[question].id}`}>
-          <div className="questionsLinks">
-            <p className="test"> {questions[question].title} </p>
-          </div>
-        </Link>
+        // <Link key={questions[question].id} to={`/questions/${questions[question].id}`} className="questionsLinks">
+        //   <div>
+        //     <p> {questions[question].title} </p>
+        //   </div>
+        // </Link>
+        <div key={questions[question].id} className="singleQuestion">
+          <Link to={`/questions/${questions[question].id}`} className="questionsLinks">
+            <span> {questions[question].title} </span>
+          </Link>
+        </div>
       ))}
     </div>
   );
