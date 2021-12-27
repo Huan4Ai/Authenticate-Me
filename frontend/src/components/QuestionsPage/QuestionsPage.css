@@ -2,7 +2,6 @@
   display: flex;
 	flex-direction: column;
   align-items: center;
-  width: 100%;
 }
 
 .askQuestionBox {
@@ -30,18 +29,14 @@
 }
 
 .questionsLinks {
-  font-family: sans-serif;
-  margin: 30px;
+  /* font-family: sans-serif; */
+  margin-bottom: 20px;
   padding: 20px;
   text-align: center;
 	background-color: white;
-  border: 3px solid #776AE3;
+  border: .5px solid rgba(219,217,217,.6);
   text-decoration: none;
   color: black;
-	width: 100%;
-	transition: transform 0.6s ease 0s;
-}
-
-.questionsLinks:hover {
-  transform: scale(1.2);
+	width: 50%;
+  box-shadow: 0.25px 0.25px 0.25px 0.25px hsl(0deg 0% 75% / 20%)
 }
