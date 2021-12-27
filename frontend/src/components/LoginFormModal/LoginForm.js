@@ -25,8 +25,10 @@ function LoginForm() {
   const demoButton = async (e) => {
     setCredential("Demo-lition");
     setPassword("password");
-    e.preventDefault();
-  }
+    return dispatch(
+      sessionActions.login({ credential: "Demo-lition", password: "password" })
+    );
+  };
 
   return (
     <div className="page_container">
