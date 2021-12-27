@@ -14,7 +14,13 @@ const router = express.Router();
 //get all questions in the database
 router.get('/', asyncHandler(async (req, res) => {
   const allQuestions = await Question.findAll({
-    include: User
+    include: [
+      {
+        model: User,
+      }, {
+        model: Answer
+      }
+    ]
   });
 
   return res.json({
