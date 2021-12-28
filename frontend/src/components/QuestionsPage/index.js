@@ -7,11 +7,11 @@ import { Link } from "react-router-dom";
 import "./QuestionsPage.css";
 import EditQuestionModal from "../EditQuestionPage";
 import DeleteQuestionModal from "../DeleteQuestion";
+import QuestionBoxModal from "./AddQuestionBox";
 
 function ShowAllQuestions() {
   const dispatch = useDispatch();
   const questions = useSelector(state => state?.question);
-  const username = useSelector(state => state?.session?.user?.username);
   const currentUserId = useSelector(state => state?.session?.user?.id);
 
 
@@ -23,10 +23,7 @@ function ShowAllQuestions() {
 
     <div className="QuestionsPageContainer">
 
-      <div className="askQuestionBox">
-        <p id="askQuestionUsername">{username}</p>
-        <p id="askQuestionPrompt">What is your question?</p>
-      </div>
+      <QuestionBoxModal />
 
       {Object.keys(questions).map((question) => (
         // <Link key={questions[question].id} to={`/questions/${questions[question].id}`} className="questionsLinks">
