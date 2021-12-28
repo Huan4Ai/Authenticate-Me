@@ -10,7 +10,7 @@ function EditSingleQuestion({ singleQuestion, onClose }) {
   const questionId = singleQuestion.id;
   const username = useSelector(state => state?.session?.user?.username);
 
-  const [title, setTitle] = useState('');
+  const [title, setTitle] = useState(singleQuestion.title);
   const [description, setDescription] = useState('');
 
 
