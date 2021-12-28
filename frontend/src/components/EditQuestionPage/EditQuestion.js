@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { editAQuestion } from "../../store/question";
 import "./EditQuestionPage.css";
 import { getQuestion } from "../../store/question";
@@ -7,6 +8,7 @@ import { getQuestion } from "../../store/question";
 function EditSingleQuestion({ singleQuestion, onClose }) {
   const dispatch = useDispatch();
   const questionId = singleQuestion.id;
+  const username = useSelector(state => state?.session?.user?.username);
 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -33,22 +35,14 @@ function EditSingleQuestion({ singleQuestion, onClose }) {
   };
 
   return (
-    <form onSubmit={handleEdit}>
+    <form className="editQuestionContainer" onSubmit={handleEdit}>
+      <p id="usernameTitle">{username}</p>
       <div>
-        <label htmlFor='title'>Title:</label>
+        <input id='title' placeholder={`Start your question with "What", "How", "Why", etc.`} type='text' onChange={(e) => setTitle(e.target.value)} value={title} className="editQuestionInput" />
       </div>
-      <div>
-        <input id='title' type='text' onChange={(e) => setTitle(e.target.value)} value={title} required className="inputField" />
-      </div>
-      <div>
-        <label htmlFor='description'>Description:</label>
-      </div>
-      <div>
-        <textarea id='description' type='text' onChange={(e) => setDescription(e.target.value)} value={description} required className="inputField" />
-      </div>
-      <div>
-        <button type="submit" className="submitButton">Submit</button>
-        <button type="button" onClick={handleCancelClick} className="cancelButton">Cancel</button>
+      <div className="editQuestionButtons">
+        <button type="button" onClick={handleCancelClick} id="cancelButtonModal">Cancel</button>
+        <button type="submit" id="submitButtonModal">Submit</button>
       </div>
 
     </form>
