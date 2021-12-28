@@ -8,6 +8,7 @@ function DeleteSingleQuestion({ singleQuestion, onClose }) {
 
 
   const handleDelete = (e) => {
+    e.preventDefault();
     onClose();
     dispatch(removeAQuestion(questionId));
   }
