@@ -27,6 +27,7 @@ const CreateSingleQuestion = ({ setShowModal }) => {
     let createdQuestion = await dispatch(createAQuestion(payload));
     if (createdQuestion) {
       setShowModal(false);
+      history.push(`/`);
       dispatch(getQuestion());
     }
 

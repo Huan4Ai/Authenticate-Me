@@ -20,14 +20,6 @@ function ShowAllQuestions() {
   }, [dispatch]);
 
   return (
-    // <ul>{Object.keys(questions).map(key =>
-    //     <li key={questions[key].id}>
-    //     <Link to={`/questions/${questions[key].id}`}>
-    //       <div>{questions[key].title}</div>
-    //     </Link>
-    //     </li>)}
-    // </ul>
-
 
     <div className="QuestionsPageContainer">
 
@@ -61,9 +53,6 @@ function ShowAllQuestions() {
     </div>
   );
 
-  // return null;
-  // questions[question].Answers[0].answer
-  // questions[question].User.username
 
 
 }
