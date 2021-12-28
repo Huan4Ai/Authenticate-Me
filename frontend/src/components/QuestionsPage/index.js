@@ -9,7 +9,8 @@ import "./QuestionsPage.css"
 function ShowAllQuestions() {
   const dispatch = useDispatch();
   const questions = useSelector(state => state?.question);
-  const username = useSelector(state => state?.session?.user?.username)
+  const username = useSelector(state => state?.session?.user?.username);
+  const currentUserId = useSelector(state => state?.session?.user?.id);
 
 
   useEffect(() => {
@@ -42,10 +43,10 @@ function ShowAllQuestions() {
         <div key={questions[question]?.id} className="singleQuestion">
           <div className="topQuestion">
             <p className="questionOwner">{questions[question]?.User?.username}</p>
-            <div className="editAndDeleteIcons">
-              <i class="far fa-edit"></i>
-              <i class="far fa-trash-alt"></i>
-            </div>
+            {questions[question]?.User?.id === currentUserId && <div className="editAndDeleteIcons">
+              <i className="far fa-edit"></i>
+              <i className="far fa-trash-alt"></i>
+            </div>}
           </div>
           <Link to={`/questions/${questions[question]?.id}`} className="questionsLinks">
             <span> {questions[question]?.title} </span>
