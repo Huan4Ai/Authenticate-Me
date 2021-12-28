@@ -39,18 +39,20 @@ function ShowAllQuestions() {
         //     <p> {questions[question].title} </p>
         //   </div>
         // </Link>
-        <div key={questions[question].id} className="singleQuestion">
-          <Link to={`/questions/${questions[question].id}`} className="questionsLinks">
-            <span> {questions[question].title} </span>
+        <div key={questions[question]?.id} className="singleQuestion">
+          <p className="questionOwner">{questions[question]?.User?.username}</p>
+          <Link to={`/questions/${questions[question]?.id}`} className="questionsLinks">
+            <span> {questions[question]?.title} </span>
           </Link>
+          <p className="singleAnswerbelowQuestion">{questions[question]?.Answers?.[0]?.answer}</p>
         </div>
       ))}
     </div>
   );
 
   // return null;
-
-
+  // questions[question].Answers[0].answer
+  // questions[question].User.username
 
 
 }
