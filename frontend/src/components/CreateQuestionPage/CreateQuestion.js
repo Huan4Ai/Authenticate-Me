@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { createAQuestion } from "../../store/question";
+import { getQuestion } from "../../store/question";
 
 
 const CreateSingleQuestion = ({ setShowModal }) => {
@@ -14,10 +15,6 @@ const CreateSingleQuestion = ({ setShowModal }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
-  const reset = () => {
-    setTitle("");
-    setDescription("");
-  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,7 +27,7 @@ const CreateSingleQuestion = ({ setShowModal }) => {
     let createdQuestion = await dispatch(createAQuestion(payload));
     if (createdQuestion) {
       setShowModal(false);
-      history.push(`/questions/${createdQuestion.id}`);
+      dispatch(getQuestion());
     }
 
   };

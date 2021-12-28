@@ -4,8 +4,6 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { getSingleQuestion } from "../../store/question";
 import { useParams } from "react-router";
-import EditQuestionModal from "../EditQuestionPage";
-import DeleteQuestionModal from "../DeleteQuestion";
 import AddAnswerModal from "../AddAnswerPage";
 import "./SingleQuestion.css"
 
@@ -29,12 +27,9 @@ function ShowOneQuestion() {
           <i className="fas fa-pencil-alt" />
           <AddAnswerModal />
         </div>
-        <div className="editAndDelete">
-        <EditQuestionModal />
-        <DeleteQuestionModal />
-        </div>
+
       </div>
-  )
+    )
   }
 
 

@@ -4,7 +4,9 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { getQuestion } from "../../store/question";
 import { Link } from "react-router-dom";
-import "./QuestionsPage.css"
+import "./QuestionsPage.css";
+import EditQuestionModal from "../EditQuestionPage";
+import DeleteQuestionModal from "../DeleteQuestion";
 
 function ShowAllQuestions() {
   const dispatch = useDispatch();
@@ -44,8 +46,10 @@ function ShowAllQuestions() {
           <div className="topQuestion">
             <p className="questionOwner">{questions[question]?.User?.username}</p>
             {questions[question]?.User?.id === currentUserId && <div className="editAndDeleteIcons">
-              <i className="far fa-edit"></i>
-              <i className="far fa-trash-alt"></i>
+              {/* <i className="far fa-edit"></i> */}
+              <EditQuestionModal singleQuestion={questions[question]} />
+              {/* <i className="far fa-trash-alt"></i> */}
+              <DeleteQuestionModal singleQuestion={questions[question]} />
             </div>}
           </div>
           <Link to={`/questions/${questions[question]?.id}`} className="questionsLinks">

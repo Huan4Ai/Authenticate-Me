@@ -3,15 +3,16 @@ import { Modal } from '../../context/Modal';
 import EditSingleQuestion from './EditQuestion';
 import "./EditQuestionPage.css"
 
-function EditQuestionModal() {
+function EditQuestionModal({ singleQuestion }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <button onClick={() => setShowModal(true)} className="editButtonOnQuestion">Edit</button>
+      {/* <button onClick={() => setShowModal(true)} className="editButtonOnQuestion">Edit</button> */}
+      <i className="far fa-edit" onClick={() => setShowModal(true)}></i>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <EditSingleQuestion setShowModal={setShowModal} />
+          <EditSingleQuestion onClose={() => setShowModal(false)} singleQuestion={singleQuestion} />
         </Modal>
       )}
     </>
