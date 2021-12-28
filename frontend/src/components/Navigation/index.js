@@ -63,10 +63,10 @@ function Navigation({ isLoaded }) {
       </a>
       {/* </div> */}
 
-      <div className="mid_search">
+      {/* <div className="mid_search">
         <i className="fas fa-search" />
         <input type="text" placeholder="Search" className="center_inputField" />
-      </div>
+      </div> */}
 
       {/* <div className="right_header"> */}
       {/* <ProfileButton user={sessionUser} /> */}

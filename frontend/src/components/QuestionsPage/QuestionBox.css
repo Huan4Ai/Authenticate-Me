@@ -1,0 +1,23 @@
+.askQuestionBox {
+  background-color: white;
+  border: 0.5px solid rgba(219,217,217,.6);
+  width: 50%;
+  height: 60px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 0.25px 0.25px 0.25px 0.25px hsl(0deg 0% 75% / 20%);
+}
+
+#askQuestionUsername {
+  margin: 0 0 10px;
+  font-size: 11pt;
+  color: #858383;
+}
+
+#askQuestionPrompt {
+  margin: 0;
+  font-size: 18pt;
+  color: #858383;
+}
