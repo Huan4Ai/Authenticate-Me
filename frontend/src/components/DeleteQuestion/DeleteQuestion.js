@@ -23,12 +23,11 @@ function DeleteSingleQuestion({ singleQuestion, onClose }) {
     <div className="deleteQuestionContainer">
       <form onSubmit={handleDelete}>
         <div>
-          <h3>Delete a question about dogs</h3>
-          <p>Are you sure you want to delete this question?</p>
+          <h2 id="deleteQuestionHeader">Are you sure you want to delete this question?</h2>
         </div>
-        <div>
-          <button type="submit" className="deleteButton">Delete</button>
-          <button type="button" onClick={handleCancelClick} className="cancelButton">Cancel</button>
+        <div className="deleteQuestionButtons">
+          <button type="button" onClick={handleCancelClick} id="cancelDeleteButton">Cancel</button>
+          <button type="submit" id="deleteButton">Delete</button>
         </div>
       </form>
     </div>
