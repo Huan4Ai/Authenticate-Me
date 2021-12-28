@@ -40,7 +40,13 @@ function ShowAllQuestions() {
         //   </div>
         // </Link>
         <div key={questions[question]?.id} className="singleQuestion">
-          <p className="questionOwner">{questions[question]?.User?.username}</p>
+          <div className="topQuestion">
+            <p className="questionOwner">{questions[question]?.User?.username}</p>
+            <div className="editAndDeleteIcons">
+              <i class="far fa-edit"></i>
+              <i class="far fa-trash-alt"></i>
+            </div>
+          </div>
           <Link to={`/questions/${questions[question]?.id}`} className="questionsLinks">
             <span> {questions[question]?.title} </span>
           </Link>
