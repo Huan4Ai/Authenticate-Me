@@ -41,26 +41,20 @@ const CreateSingleAnswer = ({ setShowModal }) => {
   };
 
   return (
-    <div className="addAnswerContainer">
-      <h3>Create an answer</h3>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor='answer'>Answer:</label>
-        </div>
-        <div>
-          <input id='answer' type='text' className="inputField" onChange={(e) => setAnswer(e.target.value)} value={answer} required />
-        </div>
-        <div>
+
+    <form onSubmit={handleSubmit} className="addAnswerContainer">
+      <div>
+        <input id='answer' type='text' className="inputField" onChange={(e) => setAnswer(e.target.value)} value={answer} required />
+      </div>
+      <div>
         <button type="submit" className="submitButton">Submit</button>
-        <button type="button" onClick={handleCancelClick} className="cancelButton">Cancel</button>
-        </div>
-      </form>
-    </div>
+      </div>
+    </form>
 
 
   );
 
-  };
+};
 
 
 
