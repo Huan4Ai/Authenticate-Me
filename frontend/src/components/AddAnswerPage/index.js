@@ -7,7 +7,13 @@ function AddAnswerModal() {
 
   return (
     <>
-      <button onClick={() => setShowModal(true)} className="answerOnQuestionButton">Answer</button>
+      {/* <button onClick={() => setShowModal(true)} className="answerOnQuestionButton">Answer</button> */}
+      <div className='answerButton'>
+        <span className='answerPencilIcon'>
+          <i className="fas fa-pencil-alt" />
+        </span>
+        <p>Answer</p>
+      </div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <CreateSingleAnswer setShowModal={setShowModal} />

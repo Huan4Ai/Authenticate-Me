@@ -5,7 +5,6 @@ import LoginForm from "./components/LoginFormModal/LoginForm";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import ShowAllQuestions from "./components/QuestionsPage";
-import ShowOneQuestion from "./components/SingleQuestion";
 import ShowAllAnswers from "./components/AnswersPage";
 import EditSingleAnswer from "./components/EditAnswerPage"
 import DeleteAnswer from "./components/DeleteAnswerPage";
@@ -38,7 +37,6 @@ function App() {
           {session? <ShowAllQuestions /> : <LoginForm />}
         </Route>
         <Route path='/questions/:questionId' exact>
-          {session? <ShowOneQuestion /> : <LoginForm />}
           {session ? <ShowAllAnswers /> : null}
         </Route>
         <Route path="/answers/:answerId">

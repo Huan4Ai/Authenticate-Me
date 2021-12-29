@@ -1,11 +1,14 @@
-.answerOnQuestionButton {
-  background-color: transparent;
-  background-repeat: no-repeat;
-  border: none;
+.answerButton {
+  display: flex;
+  width: 50%;
+  align-items: center;
   cursor: pointer;
-  overflow: hidden;
-  outline: none;
 }
+
+.answerPencilIcon {
+  color: blue;
+}
+
 
 .addAnswerContainer {
   display: flex;
