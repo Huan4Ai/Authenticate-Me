@@ -21,7 +21,7 @@ function ShowAllAnswers() {
 
   return (
     <div className="mainAnswerContainer">
-      <h1>{singleQuestion?.title}</h1>
+      <h1 id="questionTitle">{singleQuestion?.title}</h1>
       <AddAnswerModal />
       {Object.keys(answers).map(key =>
         // <li key={answers[key].id}>

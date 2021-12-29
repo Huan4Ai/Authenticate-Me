@@ -6,6 +6,10 @@
   width: 100%;
 }
 
+#questionTitle {
+  width: 50%;
+}
+
 .eachAnswer {
   margin: 10px;
   border: 1px solid lightgray;
