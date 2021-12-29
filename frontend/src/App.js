@@ -30,21 +30,21 @@ function App() {
   return (
     <>
       {isLoaded && (
-      <div>
-      {session && <Navigation isLoaded={isLoaded} />}
-      <Switch>
-        <Route path="/" exact>
-          {session? <ShowAllQuestions /> : <LoginForm />}
-        </Route>
-        <Route path='/questions/:questionId' exact>
-          {session ? <ShowAllAnswers /> : null}
-        </Route>
-        <Route path="/answers/:answerId">
-          {session ? <EditSingleAnswer /> : null}
-          {session ? <DeleteAnswer /> : null}
-        </Route>
-      </Switch>
-      </div>
+        <div>
+          {session && <Navigation isLoaded={isLoaded} />}
+          <Switch>
+            <Route path="/" exact>
+              {session ? <ShowAllQuestions /> : <LoginForm />}
+            </Route>
+            <Route path='/questions/:questionId' exact>
+              {session ? <ShowAllAnswers /> : <LoginForm />}
+            </Route>
+            <Route path="/answers/:answerId">
+              {session ? <EditSingleAnswer /> : <LoginForm />}
+              {session ? <DeleteAnswer /> : <LoginForm />}
+            </Route>
+          </Switch>
+        </div>
       )}
     </>
   );
