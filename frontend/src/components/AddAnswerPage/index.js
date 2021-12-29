@@ -12,6 +12,7 @@ function AddAnswerModal() {
   const userId = useSelector((state) => state.session.user.id);
   const questionId = useParams().questionId;
   const [answer, setAnswer] = useState("");
+  const [isOpen, setIsOpen] = useState(true);
 
   const reset = () => {
     setAnswer("");
@@ -32,19 +33,23 @@ function AddAnswerModal() {
 
   };
 
+  const answerOpener = () => {
+    setIsOpen(!isOpen);
+  }
+
   return (
     <>
-      <div className='answerButton'>
+      <div className='answerButton' onClick={answerOpener}>
         <span className='answerPencilIcon'>
           <i className="fas fa-pencil-alt" />
         </span>
         <p>Answer</p>
       </div>
 
-      <form onSubmit={handleSubmit} className="addAnswerContainer">
-        <textarea id='answer' type='text' className="addAnswerTextArea" onChange={(e) => setAnswer(e.target.value)} value={answer} required />
+      <form hidden={isOpen} onSubmit={handleSubmit} className="addAnswerContainer">
+        <textarea hidden={isOpen} id='answer' type='text' className="addAnswerTextArea" onChange={(e) => setAnswer(e.target.value)} value={answer} required />
         <div className='addAnswerRow'>
-          <button type="submit" id="addAnswerButton">Submit</button>
+          <button hidden={isOpen} type="submit" id="addAnswerButton" onClick={answerOpener}>Submit</button>
         </div>
       </form>
     </>
