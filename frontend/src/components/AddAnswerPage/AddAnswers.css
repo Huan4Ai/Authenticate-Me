@@ -1,27 +1,44 @@
-.answerOnQuestionButton {
-  background-color: transparent;
-  background-repeat: no-repeat;
-  border: none;
+.answerButton {
+  display: flex;
+  width: 50%;
+  align-items: center;
   cursor: pointer;
-  overflow: hidden;
-  outline: none;
 }
+
+.answerPencilIcon {
+  color: rgb(46, 105, 255);
+}
+
 
 .addAnswerContainer {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  width: 100%;
   align-items: center;
-  min-width: 50%;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
-.inputField {
-  margin: 10px;
+.addAnswerTextArea {
+  width: 50%;
+  min-height: 250px;
+  margin-bottom: 20px;
 }
 
-.inputField:hover {
-  border: blue;
-  border-style: solid;
-  border-radius: 1px;
+
+.addAnswerRow {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#addAnswerButton {
+  border-radius: 20px;
+  background-color: #2e69ff;
+  font-size: 10pt;
+  font-weight: 600;
+  height: 2.2rem;
+  width: 7.2rem;
+  color: #fff;
+  border: none;
+  cursor: pointer;
 }

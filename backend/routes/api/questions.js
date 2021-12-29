@@ -122,8 +122,6 @@ router.get('/:id(\\d+)/answers', asyncHandler(async (req, res, next) => {
     include: [
       {
         model: User
-      }, {
-        model: Question
       }
     ]
   });

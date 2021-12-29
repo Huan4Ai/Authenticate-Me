@@ -3,20 +3,26 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router";
+import { getSingleQuestion } from "../../store/question";
 import { getAnswers } from "../../store/answer";
+import AddAnswerModal from "../AddAnswerPage";
 import { NavLink } from "react-router-dom";
 import "./Answers.css"
 function ShowAllAnswers() {
   const dispatch = useDispatch();
   const answers = useSelector(state => state.answer);
   const questionId = useParams().questionId;
+  const singleQuestion = useSelector(state => state.question[questionId]);
 
   useEffect(() => {
-    dispatch(getAnswers(questionId))
+    dispatch(getAnswers(questionId));
+    dispatch(getSingleQuestion(questionId));
   }, [dispatch, questionId]);
 
   return (
-    <div>
+    <div className="mainAnswerContainer">
+      <h1>{singleQuestion?.title}</h1>
+      <AddAnswerModal />
       {Object.keys(answers).map(key =>
         // <li key={answers[key].id}>
         <div className="eachAnswer" key={answers[key].id}>

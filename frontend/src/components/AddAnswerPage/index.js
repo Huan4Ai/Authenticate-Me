@@ -1,18 +1,57 @@
 import React, { useState } from 'react';
-import { Modal } from '../../context/Modal';
-import CreateSingleAnswer from './AddAnswerPage';
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { createAnswer } from '../../store/answer';
 import "./AddAnswers.css"
 function AddAnswerModal() {
-  const [showModal, setShowModal] = useState(false);
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const userId = useSelector((state) => state.session.user.id);
+  const questionId = useParams().questionId;
+  const [answer, setAnswer] = useState("");
+  const [isOpen, setIsOpen] = useState(true);
+
+  const reset = () => {
+    setAnswer("");
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const data = {
+      userId,
+      questionId,
+      answer
+    };
+    let createdAnswer = await dispatch(createAnswer(data, questionId));
+    if (createdAnswer) {
+      history.push(`/questions/${questionId}`)
+      reset();
+    }
+
+  };
+
+  const answerOpener = () => {
+    setIsOpen(!isOpen);
+  }
 
   return (
     <>
-      <button onClick={() => setShowModal(true)} className="answerOnQuestionButton">Answer</button>
-      {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-          <CreateSingleAnswer setShowModal={setShowModal} />
-        </Modal>
-      )}
+      <div className='answerButton' onClick={answerOpener}>
+        <span className='answerPencilIcon'>
+          <i className="fas fa-pencil-alt" />
+        </span>
+        <p>Answer</p>
+      </div>
+
+      <form hidden={isOpen} onSubmit={handleSubmit} className="addAnswerContainer">
+        <textarea hidden={isOpen} id='answer' type='text' className="addAnswerTextArea" onChange={(e) => setAnswer(e.target.value)} value={answer} required />
+        <div className='addAnswerRow'>
+          <button hidden={isOpen} type="submit" id="addAnswerButton" onClick={answerOpener}>Submit</button>
+        </div>
+      </form>
     </>
   );
 }
