@@ -38,7 +38,7 @@ function EditSingleQuestion({ singleQuestion, onClose }) {
     <form className="editQuestionContainer" onSubmit={handleEdit}>
       <p id="usernameTitle">{username}</p>
       <div>
-        <input id='title' placeholder={`Start your question with "What", "How", "Why", etc.`} type='text' onChange={(e) => setTitle(e.target.value)} value={title} className="editQuestionInput" />
+        <input placeholder={`Start your question with "What", "How", "Why", etc.`} type='text' onChange={(e) => setTitle(e.target.value)} value={title} className="editQuestionInput" />
       </div>
       <div className="editQuestionButtons">
         <button type="button" onClick={handleCancelClick} id="cancelButtonModal">Cancel</button>

@@ -1,17 +1,16 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateAnswer } from "../../store/answer";
-import { useHistory } from "react-router";
+import { getAnswers } from "../../store/answer";
 
-
-function EditSingleAnswer() {
+function EditSingleAnswer({ singleAnswer, onClose }) {
   const dispatch = useDispatch();
-  // const singleAnswer = useSelector(state => state.answer[answerId]);
-  // const questionId = useSelector(state => state.answer[answerId].questionId);
-  // const username = useSelector(state => state?.session?.user?.username);
-  const history = useHistory();
+  const questionId = singleAnswer.questionId;
+  const username = useSelector(state => state?.session?.user?.username);
 
-  const [answer, setAnswer] = useState("");
+
+  const [answer, setAnswer] = useState(singleAnswer.answer);
+
   const reset = () => {
     setAnswer("");
   }
@@ -19,31 +18,32 @@ function EditSingleAnswer() {
   const handleEdit = async (e) => {
     e.preventDefault();
     const data = {
-      // ...singleAnswer,
+      ...singleAnswer,
       answer
     };
 
     let updatedAnswer = await dispatch(updateAnswer(data));
     if (updatedAnswer) {
-      // history.push(`/questions/${questionId}`)
-      reset();
+      onClose();
+      dispatch(getAnswers(questionId));
     }
 
   };
 
   const handleCancelClick = (e) => {
     e.preventDefault();
-    // history.push(`/questions/${questionId}`);
+    onClose();
   };
 
   return (
-    <form onSubmit={handleEdit}>
+    <form className="editAnswerContainer" onSubmit={handleEdit}>
+      <p id="usernameTitle">{username}</p>
       <div>
-        <input id='answer' type='text' onChange={(e) => setAnswer(e.target.value)} value={answer} required />
+        <input className="editAnswerInput" type='text' onChange={(e) => setAnswer(e.target.value)} value={answer} required />
       </div>
-      <div>
-        <button type="button" onClick={handleCancelClick} className="cancelButton">Cancel</button>
-        <button type="submit" className="submitButton">Submit</button>
+      <div className="editAnswerButtons">
+        <button type="button" onClick={handleCancelClick} id="cancelButtonModal">Cancel</button>
+        <button type="submit" id="submitButtonModal">Submit</button>
       </div>
     </form>
 

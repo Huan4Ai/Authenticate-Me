@@ -32,7 +32,7 @@ function ShowAllAnswers() {
             <p id="questionAnswerer">{answers?.[key]?.User?.username}</p>
             {answers?.[key]?.User?.id === currentUserId &&
               <div className="editAndDeleteIcons">
-                <EditAnswerModal />
+                <EditAnswerModal singleAnswer={answers[key]} />
                 <DeleteAnswerModal singleAnswer={answers[key]} />
               </div>}
           </div>

@@ -3,7 +3,7 @@ import { Modal } from '../../context/Modal';
 import EditSingleAnswer from './EditAnswer';
 import "./EditAnswer.css"
 
-function EditAnswerModal() {
+function EditAnswerModal({ singleAnswer }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -11,7 +11,7 @@ function EditAnswerModal() {
       <i className="far fa-edit" onClick={() => setShowModal(true)}></i>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <EditSingleAnswer onClose={() => setShowModal(false)} />
+          <EditSingleAnswer onClose={() => setShowModal(false)} singleAnswer={singleAnswer} />
         </Modal>
       )}
 
