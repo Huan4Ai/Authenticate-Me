@@ -8,6 +8,7 @@ import { getQuestion } from "../../store/question";
 function EditSingleQuestion({ singleQuestion, onClose }) {
   const dispatch = useDispatch();
   const questionId = singleQuestion.id;
+
   const username = useSelector(state => state?.session?.user?.username);
 
   const [title, setTitle] = useState(singleQuestion.title);
@@ -33,6 +34,7 @@ function EditSingleQuestion({ singleQuestion, onClose }) {
     e.preventDefault();
     onClose();
   };
+
 
   return (
     <form className="editQuestionContainer" onSubmit={handleEdit}>

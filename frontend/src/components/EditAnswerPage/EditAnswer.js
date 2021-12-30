@@ -8,12 +8,7 @@ function EditSingleAnswer({ singleAnswer, onClose }) {
   const questionId = singleAnswer.questionId;
   const username = useSelector(state => state?.session?.user?.username);
 
-
   const [answer, setAnswer] = useState(singleAnswer.answer);
-
-  const reset = () => {
-    setAnswer("");
-  }
 
   const handleEdit = async (e) => {
     e.preventDefault();
