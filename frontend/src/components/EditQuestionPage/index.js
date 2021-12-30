@@ -8,7 +8,6 @@ function EditQuestionModal({ singleQuestion }) {
 
   return (
     <>
-      {/* <button onClick={() => setShowModal(true)} className="editButtonOnQuestion">Edit</button> */}
       <i className="far fa-edit" onClick={() => setShowModal(true)}></i>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>

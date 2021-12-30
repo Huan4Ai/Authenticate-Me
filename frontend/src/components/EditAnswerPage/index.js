@@ -1,61 +1,23 @@
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom"
-import { updateAnswer } from "../../store/answer";
-import { useHistory } from "react-router";
+import React, { useState } from 'react';
+import { Modal } from '../../context/Modal';
+import EditSingleAnswer from './EditAnswer';
+import "./EditAnswer.css"
 
-
-function EditSingleAnswer() {
-  const dispatch = useDispatch();
-  const { answerId } = useParams();
-  const singleAnswer = useSelector(state => state.answer[answerId]);
-  const questionId = useSelector(state => state.answer[answerId].questionId);
-  const history = useHistory();
-
-  const [answer, setAnswer] = useState("");
-  const reset = () => {
-    setAnswer("");
-  }
-
-  const handleEdit = async (e) => {
-    e.preventDefault();
-    const data = {
-      ...singleAnswer,
-      answer
-    };
-
-    let updatedAnswer = await dispatch(updateAnswer(data));
-    if (updatedAnswer) {
-      history.push(`/questions/${questionId}`)
-      reset();
-    }
-
-  };
-
-  const handleCancelClick = (e) => {
-    e.preventDefault();
-    history.push(`/questions/${questionId}`);
-  };
+function EditAnswerModal({ singleAnswer }) {
+  const [showModal, setShowModal] = useState(false);
 
   return (
-    <div className="editAnswerContainer">
-      <h3>Edit an answer</h3>
-      <form onSubmit={handleEdit}>
-        <div>
-          <label htmlFor='answer'>Answer:</label>
-        </div>
-        <div>
-          <input id='answer' type='text' onChange={(e) => setAnswer(e.target.value)} value={answer} required />
-        </div>
-        <div>
-        <button type="submit" className="submitButton">Submit</button>
-        <button type="button" onClick={handleCancelClick} className="cancelButton">Cancel</button>
-        </div>
-      </form>
-    </div>
+    <>
+      <i className="far fa-edit" onClick={() => setShowModal(true)}></i>
+      {showModal && (
+        <Modal onClose={() => setShowModal(false)}>
+          <EditSingleAnswer onClose={() => setShowModal(false)} singleAnswer={singleAnswer} />
+        </Modal>
+      )}
 
+    </>
+  );
 
-  )
 }
 
-export default EditSingleAnswer;
+export default EditAnswerModal;

@@ -8,6 +8,7 @@ import { getQuestion } from "../../store/question";
 function EditSingleQuestion({ singleQuestion, onClose }) {
   const dispatch = useDispatch();
   const questionId = singleQuestion.id;
+
   const username = useSelector(state => state?.session?.user?.username);
 
   const [title, setTitle] = useState(singleQuestion.title);
@@ -34,11 +35,12 @@ function EditSingleQuestion({ singleQuestion, onClose }) {
     onClose();
   };
 
+
   return (
     <form className="editQuestionContainer" onSubmit={handleEdit}>
       <p id="usernameTitle">{username}</p>
       <div>
-        <input id='title' placeholder={`Start your question with "What", "How", "Why", etc.`} type='text' onChange={(e) => setTitle(e.target.value)} value={title} className="editQuestionInput" />
+        <input placeholder={`Start your question with "What", "How", "Why", etc.`} type='text' onChange={(e) => setTitle(e.target.value)} value={title} className="editQuestionInput" />
       </div>
       <div className="editQuestionButtons">
         <button type="button" onClick={handleCancelClick} id="cancelButtonModal">Cancel</button>

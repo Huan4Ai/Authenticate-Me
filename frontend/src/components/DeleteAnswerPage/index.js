@@ -1,32 +1,24 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { deleteAnswer } from "../../store/answer";
-import { useHistory } from "react-router";
+import React, { useState } from 'react';
+import { Modal } from '../../context/Modal';
+import DeleteAnswer from './DeleteAnswer';
 import "./DeleteAnswer.css"
 
-function DeleteAnswer() {
-  const dispatch = useDispatch();
-  const {answerId} = useParams();
-  const singleAnswer = useSelector(state => state.answer[answerId]);
-  const questionId = useSelector(state => state.answer[answerId].questionId)
-  const history = useHistory();
+function DeleteAnswerModal({ singleAnswer }) {
+  const [showModal, setShowModal] = useState(false);
 
-  const handleDelete = (e) => {
-    e.preventDefault();
-    dispatch(deleteAnswer(answerId));
-    history.push(`/questions/${questionId}`);
-  }
+  return (
+    <>
+      <i className="far fa-trash-alt" onClick={() => setShowModal(true)}></i>
+      {showModal && (
+        <Modal onClose={() => setShowModal(false)}>
+          <DeleteAnswer onClose={() => setShowModal(false)} singleAnswer={singleAnswer} />
+        </Modal>
+      )}
 
-  if (singleAnswer !== null || singleAnswer !== undefined) {
-    return (
-        <form onSubmit={handleDelete}>
-          <button type="submit" className="deleteButtonOnAnswer">Delete</button>
-        </form>
+    </>
+
   );
-
-  }
-  return null;
 
 }
 
-export default DeleteAnswer;
+export default DeleteAnswerModal;
