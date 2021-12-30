@@ -7,11 +7,18 @@
 }
 
 #questionTitle {
-  width: 50%;
+  width: 53%;
 }
 
 .eachAnswer {
-  margin: 10px;
-  border: 1px solid lightgray;
-  padding: 5px;
+  width: 50%;
+  background-color: white;
+  margin-bottom: 20px;
+  border: 0.5px solid rgba(219,217,217,.6);
+  padding: 20px;
+  box-shadow: 0.25px 0.25px 0.25px 0.25px hsl(0deg 0% 75% / 20%);
+}
+
+#questionAnswerer {
+  font-weight: 600;
 }

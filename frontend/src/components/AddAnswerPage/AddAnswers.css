@@ -1,6 +1,6 @@
 .answerButton {
   display: flex;
-  width: 50%;
+  width: 52%;
   align-items: center;
   cursor: pointer;
 }
@@ -19,14 +19,14 @@
 }
 
 .addAnswerTextArea {
-  width: 50%;
+  width: 53%;
   min-height: 250px;
   margin-bottom: 20px;
 }
 
 
 .addAnswerRow {
-  width: 50%;
+  width: 53%;
   display: flex;
   justify-content: flex-end;
 }

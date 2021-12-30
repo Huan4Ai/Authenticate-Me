@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { createAnswer } from '../../store/answer';
+import { getAnswers } from '../../store/answer';
 import "./AddAnswers.css"
 function AddAnswerModal() {
   const dispatch = useDispatch();
@@ -29,6 +30,7 @@ function AddAnswerModal() {
     if (createdAnswer) {
       history.push(`/questions/${questionId}`)
       reset();
+      dispatch(getAnswers(questionId));
     }
 
   };

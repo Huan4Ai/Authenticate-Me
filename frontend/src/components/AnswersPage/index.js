@@ -26,12 +26,11 @@ function ShowAllAnswers() {
       {Object.keys(answers).map(key =>
         // <li key={answers[key].id}>
         <div className="eachAnswer" key={answers[key].id}>
-          <div>
-            {answers[key].answer}
-          </div>
-          <div>
+          <p id="questionAnswerer">{answers?.[key]?.User?.username}</p>
+          <p id="answerDetail">{answers?.[key]?.answer}</p>
+          {/* <div>
             <NavLink to={`/answers/${answers[key].id}`}>Edit this answer</NavLink>
-          </div>
+          </div> */}
         </div>
         // </li>)}
       )}

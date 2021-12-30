@@ -39,10 +39,10 @@ function App() {
             <Route path='/questions/:questionId' exact>
               {session ? <ShowAllAnswers /> : <LoginForm />}
             </Route>
-            <Route path="/answers/:answerId">
+            {/* <Route path="/answers/:answerId">
               {session ? <EditSingleAnswer /> : <LoginForm />}
               {session ? <DeleteAnswer /> : <LoginForm />}
-            </Route>
+            </Route> */}
           </Switch>
         </div>
       )}
