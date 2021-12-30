@@ -26,18 +26,12 @@ function ShowAllQuestions() {
       <QuestionBoxModal />
 
       {Object.keys(questions).map((question) => (
-        // <Link key={questions[question].id} to={`/questions/${questions[question].id}`} className="questionsLinks">
-        //   <div>
-        //     <p> {questions[question].title} </p>
-        //   </div>
-        // </Link>
         <div key={questions[question]?.id} className="singleQuestion">
           <div className="topQuestion">
             <p className="questionOwner">{questions[question]?.User?.username}</p>
-            {questions[question]?.User?.id === currentUserId && <div className="editAndDeleteIcons">
-              {/* <i className="far fa-edit"></i> */}
+            {questions[question]?.User?.id === currentUserId &&
+            <div className="editAndDeleteIcons">
               <EditQuestionModal singleQuestion={questions[question]} />
-              {/* <i className="far fa-trash-alt"></i> */}
               <DeleteQuestionModal singleQuestion={questions[question]} />
             </div>}
           </div>

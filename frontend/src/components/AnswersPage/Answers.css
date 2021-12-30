@@ -19,6 +19,13 @@
   box-shadow: 0.25px 0.25px 0.25px 0.25px hsl(0deg 0% 75% / 20%);
 }
 
+.topAnswer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 #questionAnswerer {
   font-weight: 600;
+  font-size: 10pt;
 }

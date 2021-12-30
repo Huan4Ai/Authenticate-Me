@@ -6,13 +6,16 @@ import { useParams } from "react-router";
 import { getSingleQuestion } from "../../store/question";
 import { getAnswers } from "../../store/answer";
 import AddAnswerModal from "../AddAnswerPage";
-import { NavLink } from "react-router-dom";
-import "./Answers.css"
+import EditAnswerModal from "../EditAnswerPage";
+import DeleteAnswerModal from "../DeleteAnswerPage";
+import "./Answers.css";
+
 function ShowAllAnswers() {
   const dispatch = useDispatch();
   const answers = useSelector(state => state.answer);
   const questionId = useParams().questionId;
   const singleQuestion = useSelector(state => state.question[questionId]);
+  const currentUserId = useSelector(state => state?.session?.user?.id);
 
   useEffect(() => {
     dispatch(getAnswers(questionId));
@@ -24,15 +27,18 @@ function ShowAllAnswers() {
       <h1 id="questionTitle">{singleQuestion?.title}</h1>
       <AddAnswerModal />
       {Object.keys(answers).map(key =>
-        // <li key={answers[key].id}>
         <div className="eachAnswer" key={answers[key].id}>
-          <p id="questionAnswerer">{answers?.[key]?.User?.username}</p>
+          <div className="topAnswer">
+            <p id="questionAnswerer">{answers?.[key]?.User?.username}</p>
+            {answers?.[key]?.User?.id === currentUserId &&
+              <div className="editAndDeleteIcons">
+                <EditAnswerModal />
+                <DeleteAnswerModal singleAnswer={answers[key]} />
+              </div>}
+          </div>
           <p id="answerDetail">{answers?.[key]?.answer}</p>
-          {/* <div>
-            <NavLink to={`/answers/${answers[key].id}`}>Edit this answer</NavLink>
-          </div> */}
+
         </div>
-        // </li>)}
       )}
 
 

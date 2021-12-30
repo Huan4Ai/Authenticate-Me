@@ -6,8 +6,6 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import ShowAllQuestions from "./components/QuestionsPage";
 import ShowAllAnswers from "./components/AnswersPage";
-import EditSingleAnswer from "./components/EditAnswerPage"
-import DeleteAnswer from "./components/DeleteAnswerPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -39,10 +37,6 @@ function App() {
             <Route path='/questions/:questionId' exact>
               {session ? <ShowAllAnswers /> : <LoginForm />}
             </Route>
-            {/* <Route path="/answers/:answerId">
-              {session ? <EditSingleAnswer /> : <LoginForm />}
-              {session ? <DeleteAnswer /> : <LoginForm />}
-            </Route> */}
           </Switch>
         </div>
       )}
