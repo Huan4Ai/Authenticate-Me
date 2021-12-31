@@ -9,6 +9,7 @@ import AddAnswerModal from "../AddAnswerPage";
 import EditAnswerModal from "../EditAnswerPage";
 import DeleteAnswerModal from "../DeleteAnswerPage";
 import "./Answers.css";
+import About from "../About/about"
 
 function ShowAllAnswers() {
   const dispatch = useDispatch();
@@ -40,6 +41,8 @@ function ShowAllAnswers() {
 
         </div>
       )}
+
+      <About />
 
 
     </div>
