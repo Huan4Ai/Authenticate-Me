@@ -8,6 +8,7 @@ import "./QuestionsPage.css";
 import EditQuestionModal from "../EditQuestionPage";
 import DeleteQuestionModal from "../DeleteQuestion";
 import QuestionBoxModal from "./AddQuestionBox";
+import About from "../About/about";
 
 function ShowAllQuestions() {
   const dispatch = useDispatch();
@@ -41,6 +42,8 @@ function ShowAllQuestions() {
           <p className="singleAnswerbelowQuestion">{questions[question]?.Answers?.[0]?.answer}</p>
         </div>
       ))}
+
+      <About />
     </div>
   );
 
