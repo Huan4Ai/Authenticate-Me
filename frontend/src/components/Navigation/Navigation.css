@@ -34,6 +34,12 @@
   background-color: lightgray;
 }
 
+@media screen and (max-width: 500px) {
+  .left_icon {
+    display: none;
+  }
+}
+
 .mid_search {
   display: flex;
   align-items: center;

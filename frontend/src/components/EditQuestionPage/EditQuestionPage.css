@@ -6,6 +6,12 @@
   padding: 10px
 }
 
+@media screen and (max-width: 500px) {
+  .editQuestionContainer {
+    width: auto;
+  }
+}
+
 #usernameTitle {
   font-size: 11pt;
   color: #858383;
