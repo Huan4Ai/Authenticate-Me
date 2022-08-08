@@ -1,7 +1,8 @@
 # Doguora
 ## What is Doguora?
 Doguora is a clone of Quora. Doguora is a website to post questions and answers about dogs.
-![project_pic](https://user-images.githubusercontent.com/75101720/147805669-a244805e-60f0-4f9e-aed4-d7e50f1f7ece.png)
+
+![2](https://user-images.githubusercontent.com/75101720/183527278-5fda41b2-0b9e-4c57-a929-53bb0f52e87f.png)
 
 ## Live Link
 https://doguora.herokuapp.com/
